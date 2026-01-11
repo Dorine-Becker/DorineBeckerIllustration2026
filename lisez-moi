@@ -1,0 +1,31 @@
+lien web
+https://dorine-becker.github.io/DorineBeckerIllustration2026/
+
+
+dépôt github : 
+
+https://dorine-becker.github.io/DorineBeckerIllustration2026/
+
+gnrsgn@gmail.com
+DorineManosq04ocatar
+
+================
+pour les push de Git on a généré et lié une clé ssh ici :
+SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
+
+
+PAssPhrase
+DorineManosq04ocatar
+
+—----------------
+
+utilisation de portfolio avec génération de la liste des images 👍
+
+Quand toutes les images sont OK en local : sur la racine du site exécuter le script 
+
+python3 generate_categories.py
+ça met à jour le fichier categories.js
+où le html va piocher les noms des fichiers
+
+et voilà, il n’y a plus qu’à propager sur GitHub
+
