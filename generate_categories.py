@@ -1,43 +1,63 @@
 import os
 import json
 
-# Dossiers correspondant aux pages HTML
+# --- Configuration ---
 pages = {
     "portfolio": "images_portfolio",
     "projets": "images_projets"
 }
 
+COMMENTS_FILE = "commentaires.json"
+IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.gif', '.webp')
+
+# --- Chargement des commentaires ---
+def load_comments(path):
+    if not os.path.exists(path):
+        print("ℹ️ Aucun fichier de commentaires trouvé")
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+comments = load_comments(COMMENTS_FILE)
+
 all_categories = {}
 
+# --- Parcours des pages ---
 for page, base_dir in pages.items():
     categories = {}
+
     if not os.path.exists(base_dir):
         print(f"⚠️ Dossier {base_dir} inexistant, page {page} ignorée")
         continue
 
-    # On parcourt tous les sous-répertoires (1 niveau de profondeur)
-    for root, dirs, files in os.walk(base_dir):
-        # On ignore le dossier de base lui-même, on prend juste les sous-dossiers
-        if root == base_dir:
-            for folder in dirs:
-                folder_path = os.path.join(base_dir, folder)
-                image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
+    for folder in sorted(os.listdir(base_dir)):
+        folder_path = os.path.join(base_dir, folder)
 
-                if image_files:  # seulement si le dossier contient des images
-                    categories[folder.lower()] = {
-                        "title": folder,
-                        "dir": f"{base_dir}/{folder}/",
-                        "files": image_files,
-                        "names": [os.path.splitext(f)[0] for f in image_files],
-                        "desc": [f"Illustration du projet {os.path.splitext(f)[0]}" for f in image_files]
-                    }
+        if not os.path.isdir(folder_path):
+            continue
+
+        image_files = sorted([
+            f for f in os.listdir(folder_path)
+            if f.lower().endswith(IMAGE_EXTENSIONS)
+        ])
+
+        if not image_files:
+            continue
+
+        categories[folder.lower()] = {
+            "title": folder,
+            "dir": f"{base_dir}/{folder}/",
+            "files": image_files,
+            "names": [os.path.splitext(f)[0] for f in image_files],
+            "desc": [comments.get(f, "") for f in image_files]
+        }
 
     all_categories[page] = categories
 
-# Génère le fichier JS
+# --- Génération du JS ---
 with open("categories.js", "w", encoding="utf-8") as f:
     f.write("const allCategories = ")
     json.dump(all_categories, f, indent=2, ensure_ascii=False)
     f.write(";")
 
-print("✅ categories.js généré avec les sous-répertoires pour toutes les pages !")
+print("✅ categories.js généré avec commentaires externes")
