@@ -1,31 +1,69 @@
-lien web
+INFO / Dorine
+Fonctionnement :
+
+1. le répertoire partagé Drive a la même arborescence que tes fichiers sur le serveur, donc plus facile pour moi.
+Quand tu fais des modifs importantes, j'ai peu de manips à faire, je télécharge les nouvelles images et j'écrase le site en ligne en qq secondes
+
+2. dans notre Drive partagé, tu peux ajouter, enlever, renommer, changer les versions des images sans souci. Les renommer avec un numéro au début peut te permettre de forcer l'ordre où elles apparaissent
+Ex 10Biere_vert 11Biere_bleu 20Grimms   etc...   les fichiers sont lus dans l'ordre alphabétique 
+
+3. ATTENTION il y a un fichier nommé "commentaires.json" = dedans, tu PEUX mettre un commentaire qui va être relié à chaque image
+S'il n'y a plus l'image le commentaire est ignoré, idem si le nom ne correspond pas parfaitement
+
+4. Tu peux dès que tu veux partager le lien web fonctionnel ci-dessous
+(C'est en "deep-web" : pas caché (dark_web), mais presque introuvable si on n'a pas le lien...)
 https://dorine-becker.github.io/DorineBeckerIllustration2026/
 
+5. Si on veut, on pourra acheter un nom de domaine, ce sera mieux car on pourra te trouver avec des mots clé sur un moteur...
 
-dépôt github : 
-
-https://dorine-becker.github.io/DorineBeckerIllustration2026/
-
-gnrsgn@gmail.com
-DorineManosq04ocatar
 
 ================
-pour les push de Git on a généré et lié une clé ssh ici :
-SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
+INFO / Papa
 
-
-PAssPhrase
-DorineManosq04ocatar
-
-—----------------
-
-utilisation de portfolio avec génération de la liste des images 👍
+Génération de la liste des images 
 
 Quand toutes les images sont OK en local : sur la racine du site exécuter le script 
-
 python3 generate_categories.py
-ça met à jour le fichier categories.js
-où le html va piocher les noms des fichiers
 
-et voilà, il n’y a plus qu’à propager sur GitHub
+Ca met à jour le fichier categories.js
+où le html va piocher les noms des fichiers, et vérifier "commentaires.json" de type :
+{
+  "image1.jpg": "Illustration réalisée à l’encre et aquarelle.",
+  "image2.png": "Travail typographique expérimental.",
+  "Atelier.jpg": "L'atelier rêvé !"
+}
+==================
+TEST SERVEUR LOCAL
+ouvrir un Term dans racine site
+taper 
+python3 -m http.server 8000
 
+autre onglet : ifconfig
+net = port à activer sur tél
+
+et sur le tel ouvrir par ex
+http://192.168.1.26:8000/portfolio.html
+(ATTENTION aux espaces auto après le point)
+===============
+
+dépôt github : 
+TERMINAL ouvrir sur racine (là où il y a index.html)
+
+ssh-add -c ~/.ssh/id_ed25519
+
+https://dorine-becker.github.io/DorineBeckerIllustration2026/
+gnrsgn@gmail.com
+DorineManosq04ocatar
+pour les push de Git on a généré et lié une clé ssh ici :
+SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
+PAssPhrase
+DorineManosq04ocatar
+==================
+git status
+git add -A
+git commit -m "bla"
+git push origin main
+
+git push origin main --force /// n’est jamais nécessaire pour ce genre de mise à jour
+
+Il sert uniquement si tu veux réécrire l’historique ou corriger un push précédent

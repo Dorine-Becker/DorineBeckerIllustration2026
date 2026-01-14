@@ -115,7 +115,7 @@ nav ul li a:hover {
   transform: scale(1.05);
   transition: opacity 2s ease-in-out, transform 8s ease-in-out;
   z-index: 0;
-}
+}body
 
 .slide.initial-active {
   opacity: 0;
@@ -143,6 +143,14 @@ nav ul li a:hover {
   pointer-events: none;
   mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
 }
+.slide {
+  will-change: opacity, transform;
+}
+
+
+/* =============================
+   Titre fixe accueil
+============================= */
 
 /* =============================
    Titre fixe accueil
@@ -153,26 +161,47 @@ nav ul li a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255,255,255,0.9);
-  padding: 2rem 3rem;
+  padding: 0.2rem 1.5rem 1rem 1.5rem; /* top | right | bottom | left */
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   z-index: 10;
   text-align: center;
+  white-space: nowrap; /* empêche le passage à la ligne */
   color: var(--vert-principal);
   max-width: 80%;
 }
 
+/* Titre adaptatif */
 .titre-fixe h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.4rem, 3vw, 1.6rem); /* min 1.4rem, max 1.6rem */
+  margin-bottom: 0.8rem; /* espace entre titre et boutons */
   font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Pour téléphones très petits (vertical) */
+@media (max-width: 480px) {
+  .titre-fixe h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Boutons côte à côte */
 .liens {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
+}
+
+/* Bouton À propos centré sous les deux autres */
+.liens-centre {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; /* espace entre les lignes de boutons */
 }
 
 .bouton-lien {
@@ -210,13 +239,32 @@ nav ul li a:hover {
   gap: 1rem;
 }
 
+
+/* Footer fixe, pastilles violettes */
+.footer-fixe {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent; /* peut rester transparent ou légèrement coloré */
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  z-index: 20;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Pastille ronde avec icône */
 .footer-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: var(--vert-principal);
+  width: 45px;
+  height: 45px;
+  background-color: #7d4edd; /* violet principal */
   color: white;
   border-radius: 50%;
   text-decoration: none;
@@ -224,10 +272,31 @@ nav ul li a:hover {
   transition: all 0.3s ease;
 }
 
-.footer-button:hover {
-  background-color: var(--orange-accent);
-  color: var(--vert-principal);
+.footer-button i {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1; /* centrage vertical parfait */
 }
+
+/* Hover */
+.footer-button:hover {
+  background-color: #b185ff; /* violet clair au survol */
+  color: white;
+}
+
+/* Mobile : pastilles plus petites et icônes adaptées */
+@media (max-width: 480px) {
+  .footer-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .footer-button i {
+    font-size: 1.2rem;
+  }
+}
+
 
 .portrait {
   width: 150px;
@@ -406,6 +475,10 @@ body.portfolio {
   background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
   min-height: 100vh;
 }
+body {
+  overflow-x: hidden;
+}
+
 
 body.a-propos::before,
 body.portfolio::before {
@@ -465,49 +538,62 @@ body.portfolio footer {
     gap: 1rem;
   }
 }
-/* Boutons contact en bas du portfolio */
-.contact-bottom {
+
+
+/* Footer fixe en bas */
+.footer-fixe {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  margin: 2rem 0; /* espace entre grille et footer */
+  padding: 0.5rem 0;
+  z-index: 20;
+  background-color: transparent;
 }
 
-.contact-bottom .contact-buttons {
+.footer-buttons {
   display: flex;
-  flex-direction: row; /* alignés horizontalement */
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
+/* Pastilles rondes violettes avec icônes */
 .footer-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: var(--vert-principal);
+  width: 45px;
+  height: 45px;
+  background-color: #7d4edd; /* violet */
   color: white;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* taille icône */
   transition: all 0.3s ease;
 }
 
+.footer-button i {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: white; /* couleur icône */
+}
+
+/* Hover */
 .footer-button:hover {
-  background-color: var(--orange-accent);
-  color: var(--vert-principal);
+  background-color: #b185ff; /* violet clair */
+  color: white;
 }
 
-/* Responsive mobile */
-@media (max-width: 600px) {
-  .contact-bottom .contact-buttons {
-    gap: 1rem;
+/* Mobile : pastilles plus petites et icônes adaptées */
+@media (max-width: 480px) {
+  .footer-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .footer-button i {
+    font-size: 1.2rem;
   }
 }
-
-@media (min-width: 992px) {
-  .projets-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-

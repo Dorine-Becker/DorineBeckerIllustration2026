@@ -4,13 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dorine Becker Illustratrice</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome chargé en premier pour que les icônes fonctionnent -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bV0p+eOzEypjVSc7A6I2qsO5Hik7pjD8v8K3ddjzv5HXWzlxKVyOqQAZH5+VrJ/nw1W1UI0lH2FgS1OlK2lhxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Votre CSS personnalisé après -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="accueil">
 
  <header>
-    <nav>
+	 
+    <!--
+	 <nav>
       <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
       <ul id="menu">
         <li><a href="index.html">Accueil</a></li>
@@ -19,18 +26,23 @@
         <li><a href="a_propos.html">À propos</a></li>
       </ul>
     </nav>
+-->
   </header>
 
 <main>
-  <!-- Titre fixe avec liens -->
-  <div class="titre-fixe">
-    <h3>Dorine BECKER, illustratrice</h3>
-    <div class="liens">
-      <a href="portfolio.html" class="bouton-lien">Portfolio</a>
-      <a href="projets.html" class="bouton-lien">Projets</a>
-      
-    </div>
+<div class="titre-fixe">
+  <h1>Dorine Becker, illustratrice</h1>
+
+  <div class="liens">
+    <a href="portfolio.html" class="bouton-lien">Portfolio</a>
+    <a href="projets.html" class="bouton-lien">Projets</a>
   </div>
+
+  <!-- Nouveau bouton À propos centré en dessous -->
+  <div class="liens liens-centre">
+    <a href="a_propos.html" class="bouton-lien">À propos</a>
+  </div>
+</div>
 
   <!-- Diaporama -->
   <section id="Accueil">
@@ -42,7 +54,7 @@
   </section>
 </main>
 
-<!-- Footer -->
+<!--  ANCIEN Footer 
 <footer>
   <div class="footer-buttons">
     <a href="mailto:gnrsgn@gmail.com" class="footer-button" aria-label="Envoyer un mail">
@@ -59,6 +71,21 @@
   </div>
   <p class="footer-copyright">&copy; 2025 Dorine Becker</p>
 </footer>
+-->
+<footer class="footer-fixe">
+  <div class="footer-buttons">
+    <a href="mailto:gnrsgn@gmail.com" class="footer-button" aria-label="Envoyer un mail">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:0767205436" class="footer-button" aria-label="Appeler">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+
 
 <!-- Scripts -->
 <script>
