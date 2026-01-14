@@ -26,12 +26,12 @@ body {
 main {
   flex-grow: 1;
 }
+
 h1 {
   text-align: center;
   margin: 2rem 0;
   color: var(--vert-principal);
 }
-
 
 /* =============================
    Menu / Navigation
@@ -75,7 +75,6 @@ nav ul li a:hover {
   color: var(--orange-accent);
 }
 
-/* Menu mobile */
 @media (max-width: 768px) {
   #menu-toggle { display: block; }
 
@@ -90,6 +89,7 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: none;
   }
+
   nav ul.active { display: flex; }
 }
 
@@ -115,7 +115,7 @@ nav ul li a:hover {
   transform: scale(1.05);
   transition: opacity 2s ease-in-out, transform 8s ease-in-out;
   z-index: 0;
-}body
+}
 
 .slide.initial-active {
   opacity: 0;
@@ -143,14 +143,8 @@ nav ul li a:hover {
   pointer-events: none;
   mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
 }
-.slide {
-  will-change: opacity, transform;
-}
 
-
-/* =============================
-   Titre fixe accueil
-============================= */
+.slide { will-change: opacity, transform; }
 
 /* =============================
    Titre fixe accueil
@@ -161,20 +155,19 @@ nav ul li a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255,255,255,0.9);
-  padding: 0.2rem 1.5rem 1rem 1.5rem; /* top | right | bottom | left */
+  padding: 0.2rem 1.5rem 1rem 1.5rem;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   z-index: 10;
   text-align: center;
-  white-space: nowrap; /* empêche le passage à la ligne */
+  white-space: nowrap;
   color: var(--vert-principal);
   max-width: 80%;
 }
 
-/* Titre adaptatif */
 .titre-fixe h1 {
-  font-size: clamp(1.4rem, 3vw, 1.6rem); /* min 1.4rem, max 1.6rem */
-  margin-bottom: 0.8rem; /* espace entre titre et boutons */
+  font-size: clamp(1.4rem, 3vw, 1.6rem);
+  margin-bottom: 0.8rem;
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
@@ -182,14 +175,11 @@ nav ul li a:hover {
   text-overflow: ellipsis;
 }
 
-/* Pour téléphones très petits (vertical) */
 @media (max-width: 480px) {
-  .titre-fixe h1 {
-    font-size: 1.2rem;
-  }
+  .titre-fixe h1 { font-size: 1.2rem; }
 }
 
-/* Boutons côte à côte */
+/* Boutons accueil */
 .liens {
   display: flex;
   justify-content: center;
@@ -197,12 +187,7 @@ nav ul li a:hover {
   margin-top: 1rem;
 }
 
-/* Bouton À propos centré sous les deux autres */
-.liens-centre {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem; /* espace entre les lignes de boutons */
-}
+.liens-centre { display: flex; justify-content: center; margin-top: 1rem; }
 
 .bouton-lien {
   display: inline-block;
@@ -221,50 +206,25 @@ nav ul li a:hover {
 }
 
 /* =============================
-   Section photo + boutons contact / à propos
+   Footer fixe minimaliste (pastilles violettes)
 ============================= */
-.contact-top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* passage en colonne sur petit écran */
-  margin-bottom: 2rem;
-}
-
-.contact-buttons {
-  display: flex;
-  flex-direction: column; /* desktop: boutons empilés */
-  gap: 1rem;
-}
-
-
-/* Footer fixe, pastilles violettes */
 .footer-fixe {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   width: 100%;
-  background-color: transparent; /* peut rester transparent ou légèrement coloré */
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0;
+  gap: 1rem;
   z-index: 20;
 }
 
-.footer-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-/* Pastille ronde avec icône */
 .footer-button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45px;
   height: 45px;
-  background-color: #7d4edd; /* violet principal */
+  background-color: #7d4edd;
   color: white;
   border-radius: 50%;
   text-decoration: none;
@@ -272,202 +232,19 @@ nav ul li a:hover {
   transition: all 0.3s ease;
 }
 
-.footer-button i {
-  display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1; /* centrage vertical parfait */
-}
-
-/* Hover */
 .footer-button:hover {
-  background-color: #b185ff; /* violet clair au survol */
-  color: white;
+  background-color: #b185ff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Mobile : pastilles plus petites et icônes adaptées */
+/* Mobile : pastilles plus petites */
 @media (max-width: 480px) {
-  .footer-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .footer-button i {
-    font-size: 1.2rem;
-  }
-}
-
-
-.portrait {
-  width: 150px;
-  border-radius: 50%;
-  border: 8px solid var(--vert-principal);
-  padding: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  background-color: #fff8f0;
-}
-
-.apropos-text {
-  max-width: 700px;
-  margin: 2rem auto;
-  line-height: 1.6;
-  color: var(--vert-principal);
-  text-align: center;
+  .footer-button { width: 40px; height: 40px; font-size: 1.2rem; }
 }
 
 /* =============================
-   Footer général
-============================= */
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.footer-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background-color: var(--vert-principal);
-  border-radius: 50%;
-  color: white;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.footer-icons a:hover {
-  background-color: var(--orange-accent);
-  color: var(--vert-principal);
-}
-
-/* =============================
-   Formulaire contact
-============================= */
-#contact {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 15px;
-}
-
-#contact h1 {
-  text-align: center;
-  color: var(--vert-principal);
-  margin-bottom: 1.5rem;
-}
-
-form { display: flex; flex-direction: column; gap: 1rem; }
-
-form label { font-weight: bold; color: var(--vert-principal); }
-
-form input,
-form textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-  transition: border 0.3s ease, background-color 0.3s ease;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: var(--orange-accent);
-  outline: none;
-  background-color: #fff;
-}
-
-form button {
-  background-color: var(--vert-principal);
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: var(--orange-accent);
-  color: var(--vert-principal);
-}
-
-/* =============================
-   Portfolio / projets
-============================= */
-.projets-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px; /* Augmenté pour 4 colonnes */
-  margin: 0 auto;
-}
-
-.vignette {
-  text-decoration: none;
-  color: inherit;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 280px; /* Hauteur fixe pour toutes les vignettes */
-}
-
-/* Style pour les titres des vignettes (noms des images) */
-.vignette h2 {
-  font-size: 0.8rem; /* Taille de police réduite */
-  margin: 0.5rem 0; /* Espacement réduit */
-  text-align: center;
-  color: var(--vert-principal);
-  flex-grow: 1; /* Pour que le titre prenne l'espace restant */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px; /* Ajoute un peu de padding latéral */
-  overflow: hidden; /* Pour éviter que le texte ne dépasse */
-  text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
-}
-
-
-
-.vignette:hover { transform: scale(1.02); }
-
-.vignette img {
-  width: 100%;
-  height: 200px; /* Hauteur fixe pour les images */
-  object-fit: cover; /* Pour éviter la déformation */
-  display: block;
-  border-bottom: 1px solid #eee;
-}
-
-
-.vignette h2 {
-  color: var(--vert-principal);
-  margin: 1rem 0;
-  text-align: center;
-  flex-grow: 1; /* Pour que le titre prenne l'espace restant */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-@media (max-width: 600px) { .projets-grid { grid-template-columns: 1fr; } }
-
-/* =============================
-   Pages a-propos et portfolio (fond transparent)
+   Pages a-propos et portfolio
 ============================= */
 body.a-propos,
 body.portfolio {
@@ -475,10 +252,6 @@ body.portfolio {
   background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
   min-height: 100vh;
 }
-body {
-  overflow-x: hidden;
-}
-
 
 body.a-propos::before,
 body.portfolio::before {
@@ -487,113 +260,4 @@ body.portfolio::before {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: var(--blanc-transp);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 0;
-}
-
-body.a-propos main,
-body.a-propos header,
-body.a-propos footer,
-body.portfolio main,
-body.portfolio header,
-body.portfolio footer {
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  body.a-propos::before,
-  body.portfolio::before {
-    background-color: var(--blanc-transp-mobile);
-    backdrop-filter: blur(3px);
-  }
-}
-@media (max-width: 480px) {
-  body.a-propos::before,
-  body.portfolio::before {
-    background-color: var(--blanc-transp-sm);
-    backdrop-filter: blur(2px);
-  }
-}
-
-/* =============================
-   Boutons contact en bas du portfolio
-============================= */
-.contact-bottom {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0; /* espace par rapport à la grille et au footer */
-}
-
-.contact-bottom .contact-buttons {
-  display: flex;
-  flex-direction: row; /* alignés horizontalement */
-  gap: 1.5rem;
-}
-
-/* Responsive mobile : réduire un peu la taille et espacement */
-@media (max-width: 600px) {
-  .contact-bottom .contact-buttons {
-    gap: 1rem;
-  }
-}
-
-
-/* Footer fixe en bas */
-.footer-fixe {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem 0;
-  z-index: 20;
-  background-color: transparent;
-}
-
-.footer-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-/* Pastilles rondes violettes avec icônes */
-.footer-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background-color: #7d4edd; /* violet */
-  color: white;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 1.5rem; /* taille icône */
-  transition: all 0.3s ease;
-}
-
-.footer-button i {
-  display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: white; /* couleur icône */
-}
-
-/* Hover */
-.footer-button:hover {
-  background-color: #b185ff; /* violet clair */
-  color: white;
-}
-
-/* Mobile : pastilles plus petites et icônes adaptées */
-@media (max-width: 480px) {
-  .footer-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .footer-button i {
-    font-size: 1.2rem;
-  }
-}
+  backdrop-filter: b
