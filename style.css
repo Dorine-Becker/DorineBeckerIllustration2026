@@ -163,6 +163,12 @@ nav ul li a:hover {
   background-color: var(--orange-accent);
   color: var(--vert-principal);
 }
+.liens-centre {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem; /* ← espace sous les autres boutons */
+}
+
 
 /* =============================
    Footer fixe
@@ -364,6 +370,117 @@ body.projets .vignette .vignette-title {
   word-wrap: break-word;
 }
 
+/* =============================
+   PORTFOLIO
+============================= */
+body.portfolio {
+  background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+body.portfolio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--blanc-transp-sm); /* voile clair identique à projets.html */
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.portfolio main {
+  position: relative;
+  z-index: 1; /* contenu au-dessus du voile */
+}
+
+/* Navigation catégories (boutons en haut) */
+body.portfolio .portfolio-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+body.portfolio .portfolio-nav a {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--vert-principal);
+  color: var(--vert-principal);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+body.portfolio .portfolio-nav a.active,
+body.portfolio .portfolio-nav a:hover {
+  background-color: var(--vert-principal);
+  color: white;
+}
+
+/* =============================
+   VIGNETTES CARRÉES CENTRÉES + NOM SOUS IMAGE
+============================= */
+body.portfolio .projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 260px);
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-content: center; /* centre les colonnes si ligne incomplète */
+}
+
+/* wrapper autour de l'image + titre */
+body.portfolio .vignette-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* image carrée */
+body.portfolio .vignette-wrapper .vignette {
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: block;
+}
+
+body.portfolio .vignette-wrapper .vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+body.portfolio .vignette-wrapper .vignette:hover img {
+  transform: scale(1.07);
+}
+
+/* titre sous la vignette */
+body.portfolio .vignette-wrapper .vignette-title {
+  margin-top: 0.8rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--vert-principal);
+  width: 100%;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* responsive : colonnes + images plus petites */
+@media (max-width: 600px) {
+  body.portfolio .projets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  body.portfolio .vignette-wrapper .vignette {
+    width: 100%;
+  }
+}
 
 
 
@@ -402,4 +519,14 @@ body.projets .vignette .vignette-title {
   color: white;
   font-size: 2rem;
   cursor: pointer;
+}
+
+form label, 
+form input, 
+form textarea, 
+form button {
+  display: block;        /* chaque élément sur sa propre ligne */
+  width: 100%;           /* prend toute la largeur disponible */
+  margin-bottom: 1rem;   /* espace entre les champs */
+  box-sizing: border-box; /* pour éviter que padding déborde */
 }

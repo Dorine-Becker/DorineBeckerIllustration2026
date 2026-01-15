@@ -6,131 +6,145 @@
   <title>Dorine Becker – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root { --vert-principal: #3d5b43; }
-
-    h1 { text-align: center; color: var(--vert-principal); margin: 2rem 0; transition: opacity 0.4s ease; }
-
-    .portfolio-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
-    .portfolio-nav a { text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 8px; border: 2px solid var(--vert-principal); color: var(--vert-principal); font-weight: 600; transition: all 0.2s ease-in-out; cursor: pointer; }
-    .portfolio-nav a.active { background-color: var(--vert-principal); color: white; font-size: 1.1rem; }
-    .portfolio-nav a:hover { background-color: var(--vert-principal); color: white; }
-
-    .projets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; padding: 1rem; }
-    .vignette { display: block; text-decoration: none; color: inherit; line-height: 0; font-size: 0; }
-    .vignette img { width: 100%; height: auto; border-radius: 10px; transition: transform 0.3s; display: block; object-fit: contain; }
-    .vignette:hover img { transform: scale(1.05); }
-
-    #lightbox { display: none; position: fixed; z-index: 1000; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; text-align:center; color:#fff; padding:1rem; }
-    #lightbox img { max-width:90%; max-height:75vh; border-radius:10px; margin-bottom:1rem; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-    #lightbox p { font-size:1.1rem; max-width:80%; }
-    #lightbox button { position:absolute; top:20px; right:30px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
-  </style>
 </head>
 <body class="portfolio">
-  <header>
-    <nav>
-      <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
-      <ul id="menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="projets.html">Projets</a></li>
-        <li><a href="a_propos.html">À propos</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <div class="portfolio-nav" id="nav-buttons">
-      <!-- Les boutons seront générés automatiquement -->
-    </div>
+<header>
+  <nav>
+    <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
+    <ul id="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="a_propos.html">À propos</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <h1 id="page-title"></h1>
-    <div class="projets-grid" id="projets-container"></div>
-  </main>
-
-  <div id="lightbox">
-    <button id="close-lightbox" aria-label="Fermer">&times;</button>
-    <img src="" alt="" id="lightbox-image" />
-    <p id="lightbox-text"></p>
+<main>
+  	<!-- Boutons de catégories supprimés -->
+	<!-- <div class="portfolio-nav" id="nav-buttons"></div> -->
+ 
+    <!-- Les boutons de catégories seront générés ici -->
   </div>
 
-  <!-- Inclure le JS généré par Python -->
-  <script src="categories.js"></script>
+  <h1 id="page-title"></h1>
+  <div class="projets-grid" id="projets-container"></div>
+</main>
 
-  <script>
-    // --- Menu mobile ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    menuToggle?.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+<!-- Lightbox -->
+<div id="lightbox">
+  <button id="close-lightbox" aria-label="Fermer">&times;</button>
+  <img src="" alt="" id="lightbox-image" />
+  <p id="lightbox-text"></p>
+</div>
+
+<!-- Script catégories -->
+<script src="categories.js"></script>
+
+<script>
+const titleEl = document.getElementById('page-title');
+const container = document.getElementById('projets-container');
+const navButtons = document.getElementById('nav-buttons');
+
+const pageName = "portfolio";
+const categories = allCategories[pageName];
+
+// --- Génère les boutons dynamiquement ---
+// Object.keys(categories).forEach(catKey => {
+//   const btn = document.createElement('a');
+//   btn.id = `btn-${catKey}`;
+//   btn.textContent = categories[catKey].title;
+//   btn.addEventListener('click', () => loadCategory(catKey));
+//   navButtons.appendChild(btn);
+// });
+
+
+// --- Vue index du portfolio (vignette = première image de chaque dossier) ---
+function loadPortfolioIndex() {
+  titleEl.textContent = "Portfolio";
+  container.innerHTML = "";
+
+  Object.entries(categories).forEach(([key, cat]) => {
+    if (!cat.vignette) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "vignette-wrapper";
+
+    const a = document.createElement("a");
+    a.className = "vignette";
+    a.href = `portfolio.html?cat=${key}`;
+    a.innerHTML = `<img src="${cat.vignette}" alt="${cat.title}">`;
+
+    const title = document.createElement("div");
+    title.className = "vignette-title";
+    title.textContent = cat.title;
+
+    wrapper.appendChild(a);
+    wrapper.appendChild(title);
+    container.appendChild(wrapper);
+  });
+}
+
+// --- Fonction pour charger toutes les images d'une catégorie ---
+function loadCategory(catKey) {
+  const cat = categories[catKey];
+  if (!cat) return;
+
+  titleEl.style.opacity = 0;
+  container.style.opacity = 0;
+
+  setTimeout(() => {
+    titleEl.textContent = cat.title;
+    container.innerHTML = "";
+
+    cat.files.forEach((file, i) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "vignette-wrapper";
+
+      const a = document.createElement("a");
+      a.className = "vignette";
+      a.href = "#";
+      a.innerHTML = `<img src="${cat.dir}${file}" alt="${cat.names[i]}">`;
+
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('lightbox-image').src = cat.dir + file;
+        document.getElementById('lightbox-text').textContent = cat.desc[i];
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+
+      const title = document.createElement("div");
+      title.className = "vignette-title";
+      title.textContent = cat.names[i];
+
+      wrapper.appendChild(a);
+      wrapper.appendChild(title);
+      container.appendChild(wrapper);
     });
 
-    const titleEl = document.getElementById('page-title');
-    const container = document.getElementById('projets-container');
-    const navButtons = document.getElementById('nav-buttons');
+    titleEl.style.opacity = 1;
+    container.style.opacity = 1;
+  }, 200);
+}
 
-    // --- Récupère les catégories pour cette page ---
-    const pageName = "portfolio";  // on fixe ici portfolio.html
-    const categories = allCategories[pageName];
+// --- Chargement initial ---
+const params = new URLSearchParams(window.location.search);
+const initialCat = params.get('cat');
+if (initialCat && categories[initialCat]) {
+  loadCategory(initialCat);
+} else {
+  loadPortfolioIndex();
+}
 
-    // --- Génère les boutons dynamiquement ---
-    Object.keys(categories).forEach(catKey => {
-      const btn = document.createElement('a');
-      btn.id = `btn-${catKey}`;
-      btn.textContent = categories[catKey].title;
-      btn.addEventListener('click', () => loadCategory(catKey));
-      navButtons.appendChild(btn);
-    });
+// --- Lightbox ---
+document.getElementById('close-lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
+});
+</script>
 
-    // --- Fonction pour charger une catégorie ---
-    function loadCategory(catKey) {
-      const cat = categories[catKey];
-      if (!cat) return;
-
-      titleEl.style.opacity = 0;
-      container.style.opacity = 0;
-
-      setTimeout(() => {
-        titleEl.textContent = cat.title;
-        container.innerHTML = "";
-
-        document.querySelectorAll(".portfolio-nav a").forEach(a => a.classList.remove("active"));
-        document.getElementById(`btn-${catKey}`).classList.add("active");
-
-        cat.files.forEach((file, i) => {
-          const vignette = document.createElement('a');
-          vignette.className = 'vignette';
-          vignette.href = "#";
-          vignette.innerHTML = `<img src="${cat.dir}${file}" alt="${cat.names[i]}" />`;
-          vignette.addEventListener('click', e => {
-            e.preventDefault();
-            document.getElementById('lightbox-image').src = cat.dir + file;
-            document.getElementById('lightbox-text').textContent = cat.desc[i];
-            document.getElementById('lightbox').style.display = 'flex';
-          });
-          container.appendChild(vignette);
-        });
-
-        window.history.pushState({}, "", `?cat=${catKey}`);
-        titleEl.style.opacity = 1;
-        container.style.opacity = 1;
-      }, 200);
-    }
-
-    // --- Charge la catégorie initiale ---
-    const params = new URLSearchParams(window.location.search);
-    const initialCat = params.get('cat') || Object.keys(categories)[0];
-    loadCategory(initialCat);
-
-    // --- Lightbox ---
-    document.getElementById('close-lightbox').addEventListener('click', () => {
-      document.getElementById('lightbox').style.display = 'none';
-    });
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
-    });
-  </script>
 </body>
 </html>
