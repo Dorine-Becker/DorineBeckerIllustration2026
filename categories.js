@@ -3,20 +3,18 @@ const allCategories = {
     "charadesign": {
       "title": "Charadesign",
       "dir": "images_portfolio/Charadesign/",
+      "vignette": "images_portfolio/Charadesign/Agathe_bg.jpg",
       "files": [
-        "Agathe_bg.jpg",
         "Charadesign_masques_colo.jpg",
         "DRAKE.jpg",
         "Loup_garou_chara.jpg"
       ],
       "names": [
-        "Agathe_bg",
         "Charadesign_masques_colo",
         "DRAKE",
         "Loup_garou_chara"
       ],
       "desc": [
-        "",
         "",
         "",
         ""
@@ -25,8 +23,8 @@ const allCategories = {
     "illustrations": {
       "title": "Illustrations",
       "dir": "images_portfolio/Illustrations/",
+      "vignette": "images_portfolio/Illustrations/Atelier.jpg",
       "files": [
-        "Atelier.jpg",
         "Carte_postale.jpg",
         "JDR_station_essence.jpg",
         "Mockup_biere_golden2.jpg",
@@ -37,7 +35,6 @@ const allCategories = {
         "Valco_Kem_illu.jpg"
       ],
       "names": [
-        "Atelier",
         "Carte_postale",
         "JDR_station_essence",
         "Mockup_biere_golden2",
@@ -48,7 +45,6 @@ const allCategories = {
         "Valco_Kem_illu"
       ],
       "desc": [
-        "L'atelier rêvé !",
         "",
         "",
         "",
@@ -62,8 +58,8 @@ const allCategories = {
     "jeux": {
       "title": "Jeux",
       "dir": "images_portfolio/Jeux/",
+      "vignette": "images_portfolio/Jeux/Baker_street_picto.jpg",
       "files": [
-        "Baker_street_picto.jpg",
         "Cherche_et_trouve2.0.jpg",
         "Drako_illu_final.jpg",
         "Drako_picto.jpg",
@@ -81,7 +77,6 @@ const allCategories = {
         "Tresor_fantome_vigie.jpg"
       ],
       "names": [
-        "Baker_street_picto",
         "Cherche_et_trouve2.0",
         "Drako_illu_final",
         "Drako_picto",
@@ -113,27 +108,24 @@ const allCategories = {
         "",
         "",
         "",
-        "",
         ""
       ]
     },
     "livres": {
       "title": "Livres",
       "dir": "images_portfolio/Livres/",
+      "vignette": "images_portfolio/Livres/Couv_Edward_et_cie.jpg",
       "files": [
-        "Couv_Edward_et_cie.jpg",
         "Design_Pinocchio.jpg",
         "Deviant_couv.jpg",
         "Euphoria_seb_final.jpg"
       ],
       "names": [
-        "Couv_Edward_et_cie",
         "Design_Pinocchio",
         "Deviant_couv",
         "Euphoria_seb_final"
       ],
       "desc": [
-        "",
         "",
         "",
         ""
@@ -144,8 +136,8 @@ const allCategories = {
     "corback": {
       "title": "Corback",
       "dir": "images_projets/Corback/",
+      "vignette": "images_projets/Corback/Corback_perso1.png",
       "files": [
-        "Corback_perso1.png",
         "Corback_perso2.png",
         "Corback_perso3.png",
         "Corback_perso4.png",
@@ -154,7 +146,6 @@ const allCategories = {
         "Corback_recherches2.png"
       ],
       "names": [
-        "Corback_perso1",
         "Corback_perso2",
         "Corback_perso3",
         "Corback_perso4",
@@ -168,22 +159,20 @@ const allCategories = {
         "",
         "",
         "",
-        "",
         ""
       ]
     },
     "drako": {
       "title": "Drako",
       "dir": "images_projets/Drako/",
+      "vignette": "images_projets/Drako/Drako_carte_gobelin.png",
       "files": [
-        "Drako_carte_gobelin.png",
         "Drako_cartes.jpg",
         "Drako_couv_mockup.jpg",
         "Drako_picto.jpg",
         "drako-aetherya-pocket.jpg"
       ],
       "names": [
-        "Drako_carte_gobelin",
         "Drako_cartes",
         "Drako_couv_mockup",
         "Drako_picto",
@@ -193,15 +182,14 @@ const allCategories = {
         "",
         "",
         "",
-        "",
         ""
       ]
     },
     "grimms_investigations": {
-      "title": "Grimms_Investigations",
+      "title": "Grimms Investigations",
       "dir": "images_projets/Grimms_Investigations/",
+      "vignette": "images_projets/Grimms_Investigations/Mockup_livre.png",
       "files": [
-        "Mockup_livre.png",
         "PFC_boite_mockup.png",
         "PFC_cartes_bonbons.jpg",
         "PFC_cartes_dos.jpg",
@@ -221,7 +209,6 @@ const allCategories = {
         "PFC_pages5.jpg"
       ],
       "names": [
-        "Mockup_livre",
         "PFC_boite_mockup",
         "PFC_cartes_bonbons",
         "PFC_cartes_dos",
@@ -241,7 +228,6 @@ const allCategories = {
         "PFC_pages5"
       ],
       "desc": [
-        "",
         "",
         "",
         "",

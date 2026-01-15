@@ -44,12 +44,17 @@ for page, base_dir in pages.items():
         if not image_files:
             continue
 
+        # Première image = vignette
+        vignette = image_files[0]
+        gallery_files = image_files[1:]
+
         categories[folder.lower()] = {
-            "title": folder,
+            "title": folder.replace("_", " "),
             "dir": f"{base_dir}/{folder}/",
-            "files": image_files,
-            "names": [os.path.splitext(f)[0] for f in image_files],
-            "desc": [comments.get(f, "") for f in image_files]
+            "vignette": f"{base_dir}/{folder}/{vignette}",
+            "files": gallery_files,
+            "names": [os.path.splitext(f)[0] for f in gallery_files],
+            "desc": [comments.get(f, "") for f in gallery_files]
         }
 
     all_categories[page] = categories

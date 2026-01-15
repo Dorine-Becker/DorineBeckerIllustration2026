@@ -105,46 +105,18 @@ nav ul li a:hover {
 
 .slide {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   opacity: 0;
   transform: scale(1.05);
   transition: opacity 2s ease-in-out, transform 8s ease-in-out;
-  z-index: 0;
-}
-
-.slide.initial-active {
-  opacity: 0;
-  transform: scale(1.15);
-  transition: none;
 }
 
 .slide.active {
   opacity: 1;
-  z-index: 1;
   transform: scale(1);
 }
-
-.slide::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-  mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
-}
-
-.slide { will-change: opacity, transform; }
 
 /* =============================
    Titre fixe accueil
@@ -155,49 +127,36 @@ nav ul li a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255,255,255,0.9);
-  padding: 0.2rem 1.5rem 1rem 1.5rem;
+  padding: 0.5rem 1.5rem 1.2rem;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   z-index: 10;
   text-align: center;
-  white-space: nowrap;
   color: var(--vert-principal);
-  max-width: 80%;
 }
 
 .titre-fixe h1 {
-  font-size: clamp(1.4rem, 3vw, 1.6rem);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
   margin-bottom: 0.8rem;
-  font-weight: bold;
-  line-height: 1.2;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-@media (max-width: 480px) {
-  .titre-fixe h1 { font-size: 1.2rem; }
-}
-
-/* Boutons accueil */
+/* =============================
+   Boutons accueil
+============================= */
 .liens {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 1rem;
 }
 
-.liens-centre { display: flex; justify-content: center; margin-top: 1rem; }
-
 .bouton-lien {
-  display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: var(--vert-principal);
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .bouton-lien:hover {
@@ -206,7 +165,7 @@ nav ul li a:hover {
 }
 
 /* =============================
-   Footer fixe minimaliste (pastilles violettes)
+   Footer fixe
 ============================= */
 .footer-fixe {
   position: fixed;
@@ -219,45 +178,228 @@ nav ul li a:hover {
 }
 
 .footer-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 45px;
   height: 45px;
   background-color: #7d4edd;
   color: white;
   border-radius: 50%;
-  text-decoration: none;
   font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
 .footer-button:hover {
   background-color: #b185ff;
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Mobile : pastilles plus petites */
-@media (max-width: 480px) {
-  .footer-button { width: 40px; height: 40px; font-size: 1.2rem; }
 }
 
 /* =============================
-   Pages a-propos et portfolio
+   Pages a-propos / portfolio
 ============================= */
 body.a-propos,
 body.portfolio {
-  position: relative;
   background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
-  min-height: 100vh;
+  position: relative;
 }
 
 body.a-propos::before,
 body.portfolio::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background-color: var(--blanc-transp);
-  backdrop-filter: b
+}
+
+/* =============================
+   PROJETS
+============================= */
+body.projets {
+  background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+body.projets::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--blanc-transp-sm);
+}
+
+body.projets main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation catégories */
+.portfolio-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.portfolio-nav a {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--vert-principal);
+  color: var(--vert-principal);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.portfolio-nav a.active,
+.portfolio-nav a:hover {
+  background-color: var(--vert-principal);
+  color: white;
+}
+
+
+
+/* =============================
+   VIGNETTES CARRÉES CENTRÉES
+============================= */
+/* =============================
+   VIGNETTES CARRÉES CENTRÉES + NOM SOUS IMAGE
+============================= */
+body.projets .projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 260px);
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-content: center; /* centre les colonnes si ligne incomplète */
+}
+
+/* wrapper autour de l'image + titre */
+body.projets .vignette-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* image carrée */
+body.projets .vignette-wrapper .vignette {
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: block;
+}
+
+body.projets .vignette-wrapper .vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+body.projets .vignette-wrapper .vignette:hover img {
+  transform: scale(1.07);
+}
+
+/* titre sous la vignette */
+body.projets .vignette-wrapper .vignette-title {
+  margin-top: 0.8rem;  /* espace sous l'image */
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--vert-principal);
+  width: 100%;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* responsive : colonnes + images plus petites */
+@media (max-width: 600px) {
+  body.projets .projets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  body.projets .vignette-wrapper .vignette {
+    width: 100%;
+  }
+}
+
+/* =============================
+   Nom du projet sous chaque vignette
+============================= */
+body.projets .vignette {
+  display: flex;
+  flex-direction: column;  /* image + titre vertical */
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+body.projets .vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+body.projets .vignette:hover img {
+  transform: scale(1.07);
+}
+
+body.projets .vignette .vignette-title {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--vert-principal);
+  width: 100%;
+  word-wrap: break-word;
+}
+
+
+
+
+/* =============================
+   Lightbox
+============================= */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 75vh;
+  border-radius: 10px;
+}
+
+#lightbox p {
+  color: white;
+  margin-top: 1rem;
+}
+
+#lightbox button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}

@@ -75,14 +75,7 @@
     const pageName = "projets";  // on fixe ici projets.html
     const categories = allCategories[pageName];
 
-    // --- Génère les boutons dynamiquement ---
-    Object.keys(categories).forEach(catKey => {
-      const btn = document.createElement('a');
-      btn.id = `btn-${catKey}`;
-      btn.textContent = categories[catKey].title;
-      btn.addEventListener('click', () => loadCategory(catKey));
-      navButtons.appendChild(btn);
-    });
+ 
 
     // --- Fonction pour charger une catégorie ---
     function loadCategory(catKey) {
@@ -118,11 +111,47 @@
         container.style.opacity = 1;
       }, 200);
     }
+// --- Vue index des projets (vignettes dossiers) ---
+function loadProjectIndex() {
+  titleEl.textContent = "Projets";
+  container.innerHTML = "";
 
-    // --- Charge la catégorie initiale ---
+  document.querySelectorAll(".portfolio-nav a").forEach(a => {
+    a.classList.remove("active");
+  });
+
+  Object.entries(categories).forEach(([key, cat]) => {
+    if (!cat.vignette) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "vignette-wrapper";
+
+    const a = document.createElement("a");
+    a.className = "vignette";
+    a.href = `projets.html?cat=${key}`;
+    a.innerHTML = `<img src="${cat.vignette}" alt="${cat.title}">`;
+
+    const title = document.createElement("div");
+    title.className = "vignette-title";
+    title.textContent = cat.title;
+
+    wrapper.appendChild(a);
+    wrapper.appendChild(title);
+
+    container.appendChild(wrapper);
+  });
+}
+
+
     const params = new URLSearchParams(window.location.search);
-    const initialCat = params.get('cat') || Object.keys(categories)[0];
-    loadCategory(initialCat);
+	const initialCat = params.get('cat');
+
+	if (initialCat && categories[initialCat]) {
+  		loadCategory(initialCat);
+	} else {
+  		loadProjectIndex();
+	}
+
 
     // --- Lightbox ---
     document.getElementById('close-lightbox').addEventListener('click', () => {
