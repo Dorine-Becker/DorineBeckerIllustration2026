@@ -6,7 +6,9 @@
   <title>Dorine Becker Illustratrice</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+ 
+	<!-- suppression pour factorisation dans footer.html
+	<style>
     /* Style minimal pour les pastilles violettes */
     .footer-fixe {
       position: fixed;
@@ -40,6 +42,8 @@
 
     /* Pas besoin de redÃ©finir Font Awesome, le CDN s'en charge */
   </style>
+-->
+	
   <!-- CSS principal -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -84,7 +88,20 @@
   </section>
 </main>
 
-  <div class="footer-fixe">
+	<!-- pastilles FACTORISEES -->
+	<!-- Footer (pastilles de contact) -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <!-- suppression pour factorisation dans footer.html
+	<div class="footer-fixe">
     <a href="mailto:gnrsgn@gmail.com" class="footer-button" aria-label="Envoyer un mail">
       <i class="fa-solid fa-envelope"></i>
     </a>
@@ -95,6 +112,7 @@
       <i class="fa-brands fa-instagram"></i>
     </a>
   </div>
+-->
 
 <!-- Scripts -->
 <script>
