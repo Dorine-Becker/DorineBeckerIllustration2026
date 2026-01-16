@@ -530,3 +530,26 @@ form button {
   margin-bottom: 1rem;   /* espace entre les champs */
   box-sizing: border-box; /* pour éviter que padding déborde */
 }
+
+/* =============================
+   Footer copyright
+============================= */
+.site-footer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.85rem;
+  color: #555;
+  z-index: 15; /* en dessous des pastilles */
+  pointer-events: none; /* évite de bloquer les clics */
+}
+
+.site-footer p {
+  margin: 0;
+}
+/* Masquer le copyright sur mobile */
+@media (max-width: 600px) {
+  .site-footer {
+    display: none;
+  }
+}
