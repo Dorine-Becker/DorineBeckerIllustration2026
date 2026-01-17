@@ -91,7 +91,8 @@ function loadCategory(catKey) {
 
     // --- Inclure la vignette comme première image ---
     const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
-    const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
+    //const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
+	const allDesc = cat.desc; // inclut déjà le commentaire de la vignette
 
     allFiles.forEach((file, i) => {
       const wrapper = document.createElement("div");
@@ -162,12 +163,12 @@ function loadProjectIndex() {
 
 
     // --- Lightbox ---
-    document.getElementById('close-lightbox').addEventListener('click', () => {
-      document.getElementById('lightbox').style.display = 'none';
-    });
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
-    });
+document.getElementById('close-lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
+});
   </script>
 		  <!-- Pastilles de contact (footer factorisé) -->
   <div id="footer-placeholder"></div>

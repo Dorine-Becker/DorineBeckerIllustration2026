@@ -184,7 +184,7 @@ const allCategories = {
         "drako-aetherya-pocket"
       ],
       "desc": [
-        "",
+        "Boîte pour le jeu",
         "",
         "",
         "",
