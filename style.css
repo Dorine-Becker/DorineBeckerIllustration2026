@@ -269,15 +269,15 @@ body.projets .contact-home {
 }
 
 /* =============================
-   Pages a-propos / portfolio
+   Pages a_propos / portfolio
 ============================= */
-body.a-propos,
+body.a_propos,
 body.portfolio {
   background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
   position: relative;
 }
 
-body.a-propos::before,
+body.a_propos::before,
 body.portfolio::before {
   content: "";
   position: absolute;
@@ -619,4 +619,47 @@ form button {
   .site-footer {
     display: none;
   }
+}
+
+/* =============================
+   Fond semi-transparent derrière le contenu (sauf accueil)
+============================= */
+body.portfolio::before,
+body.projets::before,
+body.a_propos::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* couvre tout le body */
+  background: url('images_accueil/fond_transparent.jpg') center/cover no-repeat;
+  opacity: 0.25;   /* transparence douce */
+  z-index: 50;     /* derrière le contenu mais devant le fond */
+  pointer-events: none; /* laisse passer les clics */
+}
+
+/* =============================
+   Contenu et pastilles au-dessus du voile
+============================= */
+body.portfolio main,
+body.projets main,
+body.a_propos main,
+body.portfolio .contact-home,
+body.projets .contact-home,
+body.a_propos .contact-home {
+  position: relative; /* contenu au-dessus du ::before */
+  z-index: 51;
+}
+
+/* =============================
+   Pastilles fixées en bas pour portfolio, projets et a_propos
+============================= */
+body.portfolio .contact-home,
+body.projets .contact-home,
+body.a_propos .contact-home {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 101;  /* au-dessus du voile */
+  margin: 0;
 }
