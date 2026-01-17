@@ -78,43 +78,46 @@
  
 
     // --- Fonction pour charger une catégorie ---
-    function loadCategory(catKey) {
-      const cat = categories[catKey];
-      if (!cat) return;
+function loadCategory(catKey) {
+  const cat = categories[catKey];
+  if (!cat) return;
 
-      titleEl.style.opacity = 0;
-      container.style.opacity = 0;
+  titleEl.style.opacity = 0;
+  container.style.opacity = 0;
 
-      setTimeout(() => {
-        titleEl.textContent = cat.title;
-        container.innerHTML = "";
+  setTimeout(() => {
+    titleEl.textContent = cat.title;
+    container.innerHTML = "";
 
-        document.querySelectorAll(".portfolio-nav a").forEach(a => a.classList.remove("active"));
-          
-		  <!-- document.getElementById(`btn-${catKey}`).classList.add("active"); -->
-			<!-- remplacement de LA ligne précéd chatgpt par les 2 suivantes : -->
-		  	const btn = document.getElementById(`btn-${catKey}`);
-			if (btn) btn.classList.add("active");
-		  
-        cat.files.forEach((file, i) => {
-          const vignette = document.createElement('a');
-          vignette.className = 'vignette';
-          vignette.href = "#";
-          vignette.innerHTML = `<img src="${cat.dir}${file}" alt="${cat.names[i]}" />`;
-          vignette.addEventListener('click', e => {
-            e.preventDefault();
-            document.getElementById('lightbox-image').src = cat.dir + file;
-            document.getElementById('lightbox-text').textContent = cat.desc[i];
-            document.getElementById('lightbox').style.display = 'flex';
-          });
-          container.appendChild(vignette);
-        });
+    // --- Inclure la vignette comme première image ---
+    const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
+    const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
 
-        window.history.pushState({}, "", `?cat=${catKey}`);
-        titleEl.style.opacity = 1;
-        container.style.opacity = 1;
-      }, 200);
-    }
+    allFiles.forEach((file, i) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "vignette-wrapper";
+
+      const a = document.createElement("a");
+      a.className = "vignette";
+      a.href = "#";
+      a.innerHTML = `<img src="${cat.dir}${file}" alt="">`; // alt vide, pas de nom affiché
+
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('lightbox-image').src = cat.dir + file;
+        document.getElementById('lightbox-text').textContent = allDesc[i];
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+
+      wrapper.appendChild(a);
+      container.appendChild(wrapper);
+    });
+
+    titleEl.style.opacity = 1;
+    container.style.opacity = 1;
+  }, 200);
+}
+
 // --- Vue index des projets (vignettes dossiers) ---
 function loadProjectIndex() {
   titleEl.textContent = "Projets";
@@ -140,7 +143,8 @@ function loadProjectIndex() {
     title.textContent = cat.title;
 
     wrapper.appendChild(a);
-    wrapper.appendChild(title);
+      
+	wrapper.appendChild(title);
 
     container.appendChild(wrapper);
   });

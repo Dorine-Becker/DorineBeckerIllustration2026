@@ -100,28 +100,27 @@ function loadCategory(catKey) {
     titleEl.textContent = cat.title;
     container.innerHTML = "";
 
-    cat.files.forEach((file, i) => {
+    // --- Inclure la vignette comme première image ---
+    const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
+    const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
+
+    allFiles.forEach((file, i) => {
       const wrapper = document.createElement("div");
       wrapper.className = "vignette-wrapper";
 
       const a = document.createElement("a");
       a.className = "vignette";
       a.href = "#";
-      a.innerHTML = `<img src="${cat.dir}${file}" alt="${cat.names[i]}">`;
+      a.innerHTML = `<img src="${cat.dir}${file}" alt="">`; // alt vide, pas de nom affiché
 
       a.addEventListener('click', e => {
         e.preventDefault();
         document.getElementById('lightbox-image').src = cat.dir + file;
-        document.getElementById('lightbox-text').textContent = cat.desc[i];
+        document.getElementById('lightbox-text').textContent = allDesc[i];
         document.getElementById('lightbox').style.display = 'flex';
       });
 
-      const title = document.createElement("div");
-      title.className = "vignette-title";
-      title.textContent = cat.names[i];
-
       wrapper.appendChild(a);
-      wrapper.appendChild(title);
       container.appendChild(wrapper);
     });
 
