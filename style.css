@@ -221,6 +221,25 @@ nav ul li a:hover {
 }
 
 /* =============================
+   Pastilles fixées en bas, visibles sur toutes les pages
+============================= */
+/* Pastilles fixées en bas pour toutes les pages */
+body.accueil .contact-home,
+body.portfolio .contact-home,
+body.projets .contact-home {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 101;
+  margin: 0;
+}
+
+
+
+
+/* =============================
    Footer fixe en bas à droite
 ============================= */
 .footer-fixe {

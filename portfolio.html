@@ -24,8 +24,6 @@
 </header>
 
 <main>
-  	<!-- Boutons de catégories supprimés -->
-	<!-- <div class="portfolio-nav" id="nav-buttons"></div> -->
  
     <!-- Les boutons de catégories seront générés ici -->
   </div>
@@ -52,14 +50,6 @@ const navButtons = document.getElementById('nav-buttons');
 const pageName = "portfolio";
 const categories = allCategories[pageName];
 
-// --- Génère les boutons dynamiquement ---
-// Object.keys(categories).forEach(catKey => {
-//   const btn = document.createElement('a');
-//   btn.id = `btn-${catKey}`;
-//   btn.textContent = categories[catKey].title;
-//   btn.addEventListener('click', () => loadCategory(catKey));
-//   navButtons.appendChild(btn);
-// });
 
 
 // --- Vue index du portfolio (vignette = première image de chaque dossier) ---
