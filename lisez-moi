@@ -34,6 +34,8 @@ où le html va piocher les noms des fichiers, et vérifier "commentaires.json" d
 }
 ==================
 TEST SERVEUR LOCAL
+*** pour tél : 
+
 ouvrir un Term dans racine site
 taper 
 python3 -m http.server 8000
@@ -44,9 +46,14 @@ net = port à activer sur tél
 et sur le tel ouvrir par ex
 http://192.168.1.26:8000/portfolio.html
 (ATTENTION aux espaces auto après le point)
+
+*** pour PC (vérif des pastilles etc)
+python3 -m http.server 8000
+et ouvrir le navigateur sur 
+http://localhost:8000/index.html
 ===============
 
-dépôt github : 
+dépôt github : PUSH SYNCHRO  upload
 TERMINAL ouvrir sur racine (là où il y a index.html)
 
 ssh-add -c ~/.ssh/id_ed25519
@@ -58,6 +65,12 @@ pour les push de Git on a généré et lié une clé ssh ici :
 SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
 PAssPhrase
 DorineManosq04ocatar
+
+dépôt github : PUSH synchro DOWNLOAD
+git fetch origin
+git reset --hard origin/main
+git clean -fd
+
 ==================
 git status
 git add -A
