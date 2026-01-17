@@ -102,7 +102,8 @@ function loadCategory(catKey) {
 
     // --- Inclure la vignette comme première image ---
     const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
-    const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
+    const allDesc = cat.desc; // déjà complet avec vignette + autres images
+
 
     allFiles.forEach((file, i) => {
       const wrapper = document.createElement("div");
@@ -116,7 +117,8 @@ function loadCategory(catKey) {
       a.addEventListener('click', e => {
         e.preventDefault();
         document.getElementById('lightbox-image').src = cat.dir + file;
-        document.getElementById('lightbox-text').textContent = allDesc[i];
+        document.getElementById('lightbox-text').textContent = allDesc[i] || "";
+
         document.getElementById('lightbox').style.display = 'flex';
       });
 

@@ -17,6 +17,7 @@ const allCategories = {
       "desc": [
         "",
         "",
+        "",
         ""
       ]
     },
@@ -45,7 +46,8 @@ const allCategories = {
         "Valco_Kem_illu"
       ],
       "desc": [
-        "",
+        "L'atelier rêvé !",
+        "En guise de carte de voeux",
         "",
         "",
         "",
@@ -108,6 +110,7 @@ const allCategories = {
         "",
         "",
         "",
+        "",
         ""
       ]
     },
@@ -126,6 +129,7 @@ const allCategories = {
         "Euphoria_seb_final"
       ],
       "desc": [
+        "",
         "",
         "",
         ""
@@ -159,6 +163,7 @@ const allCategories = {
         "",
         "",
         "",
+        "",
         ""
       ]
     },
@@ -179,6 +184,7 @@ const allCategories = {
         "drako-aetherya-pocket"
       ],
       "desc": [
+        "",
         "",
         "",
         "",
@@ -228,6 +234,7 @@ const allCategories = {
         "PFC_pages5"
       ],
       "desc": [
+        "",
         "",
         "",
         "",

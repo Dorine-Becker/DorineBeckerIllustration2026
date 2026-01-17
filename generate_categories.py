@@ -54,7 +54,9 @@ for page, base_dir in pages.items():
             "vignette": f"{base_dir}/{folder}/{vignette}",
             "files": gallery_files,
             "names": [os.path.splitext(f)[0] for f in gallery_files],
-            "desc": [comments.get(f, "") for f in gallery_files]
+            # ajoute la vignette au début avec commentaire s'il existe, sinon ""
+			"desc": [comments.get(vignette, "")] + [comments.get(f, "") for f in gallery_files]
+
         }
 
     all_categories[page] = categories
