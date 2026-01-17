@@ -51,18 +51,10 @@
 <body class="accueil">
 
 <header>
-  <!-- Navigation masquée (pour futur menu) -->
-  <!--
-  <nav>
-    <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
-    <ul id="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="a_propos.html">À propos</a></li>
-    </ul>
-  </nav>
-  -->
+
+	
+	<!-- Font Awesome en local -->
+  <link rel="stylesheet" href="fontawesome/css/all.css">
 </header>
 
 <main>
@@ -88,31 +80,20 @@
   </section>
 </main>
 
-	<!-- pastilles FACTORISEES -->
-	<!-- Footer (pastilles de contact) -->
-  <div id="footer-placeholder"></div>
+<div class="contact-home">
+  <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="tel:0767205436" class="footer-button phone">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+</div>
 
-  <script>
-    fetch("footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      });
-  </script>
 
-  <!-- suppression pour factorisation dans footer.html
-	<div class="footer-fixe">
-    <a href="mailto:gnrsgn@gmail.com" class="footer-button" aria-label="Envoyer un mail">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-    <a href="tel:0767205436" class="footer-button" aria-label="Appeler">
-      <i class="fa-solid fa-phone"></i>
-    </a>
-    <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button" aria-label="Instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-  </div>
--->
+
 
 <!-- Scripts -->
 <script>
@@ -151,5 +132,18 @@
   setInterval(showNextSlide, 6000);
 </script>
 
-</body>
+	<!-- BON BLOC pour les pastilles -->
+	<div class="contact-home">
+  <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="tel:0767205436" class="footer-button phone">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+	</div>
+
+	</body>
 </html>
