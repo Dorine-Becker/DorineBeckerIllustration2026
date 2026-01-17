@@ -90,8 +90,12 @@
         container.innerHTML = "";
 
         document.querySelectorAll(".portfolio-nav a").forEach(a => a.classList.remove("active"));
-        document.getElementById(`btn-${catKey}`).classList.add("active");
-
+          
+		  <!-- document.getElementById(`btn-${catKey}`).classList.add("active"); -->
+			<!-- remplacement de LA ligne précéd chatgpt par les 2 suivantes : -->
+		  	const btn = document.getElementById(`btn-${catKey}`);
+			if (btn) btn.classList.add("active");
+		  
         cat.files.forEach((file, i) => {
           const vignette = document.createElement('a');
           vignette.className = 'vignette';
