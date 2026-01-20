@@ -35,7 +35,8 @@ h1 {
 
 /* =============================
    Menu / Navigation
-============================= */
+SUPPRESSION pour soigner menu hamburger
+
 nav {
   position: relative;
   z-index: 20;
@@ -92,6 +93,8 @@ nav ul li a:hover {
 
   nav ul.active { display: flex; }
 }
+============================= */
+
 
 /* =============================
    Diaporama accueil

@@ -9,9 +9,13 @@
   <link rel="stylesheet" href="style.css" />
   
 </head>
+	
 <body class="portfolio">
+<!--nouveau menu factorisé-->
+	<div id="menu-container"></div>
 
-<header>
+<!--suppression pour soigner hamburger-->
+<!--<header>
   <nav>
     <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
     <ul id="menu">
@@ -22,7 +26,8 @@
     </ul>
   </nav>
 </header>
-
+-->
+	
 <main>
  
     <!-- Les boutons de catégories seront générés ici -->
@@ -152,6 +157,17 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
     <i class="fa-brands fa-instagram"></i>
   </a>
 	</div>
+<link rel="stylesheet" href="menu.css">
+<script src="menu.js"></script>
+
+	<!--nouveau menu factorisé-->
+<script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
+    });
+</script>
 
 
 </body>

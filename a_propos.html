@@ -89,6 +89,9 @@
 </head>
 
 <body class="a_propos">
+<!--nouveau menu factorisé-->
+	<div id="menu-container"></div>
+<!--suppression pour soigner hamburger
   <header>
     <nav>
       <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
@@ -100,7 +103,8 @@
       </ul>
     </nav>
   </header>
-
+-->
+	
   <main>
     <section id="a_propos" style="padding:2rem;">
       <h1 style="text-align:center;">À propos</h1>
@@ -153,16 +157,17 @@
     </section>
   </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('menu');
-
-      menuToggle.addEventListener('click', function () {
-        menu.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
-      });
+  
+	<!--nouveau menu factorisé-->
+<script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
     });
-  </script>
+</script>
+	<link rel="stylesheet" href="menu.css">
+<script src="menu.js"></script>
+
 </body>
 </html>

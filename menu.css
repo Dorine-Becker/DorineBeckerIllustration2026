@@ -1,0 +1,90 @@
+/* === MENU GLOBAL === */
+
+.site-menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000; /* au-dessus des ::before */
+}
+
+/* Bouton hamburger */
+.menu-toggle {
+  background: var(--vert-principal);
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Liste des liens */
+.menu-links {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1.2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.menu-links a {
+  text-decoration: none;
+  color: var(--vert-principal);
+  font-weight: bold;
+}
+
+/* Menu ouvert */
+.site-menu.open .menu-links {
+  display: flex;
+}
+
+/* Desktop : menu toujours visible, pas de hamburger */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1.5rem;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+.menu-links {
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-links a {
+  position: relative;
+  z-index: 1002;
+}
+
+.site-menu a {
+  color: var(--vert-principal);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-menu a:hover {
+  color: var(--orange-accent);
+}
+
+.site-menu {
+  all: unset;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  font-family: Georgia, serif;
+}
+

@@ -1,134 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">      <!-- pour les patsilles ?-->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dorine Becker – Projets</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root { --vert-principal: #3d5b43; }
-
-    h1 { text-align: center; color: var(--vert-principal); margin: 2rem 0; transition: opacity 0.4s ease; }
-
-    .portfolio-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
-    .portfolio-nav a { text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 8px; border: 2px solid var(--vert-principal); color: var(--vert-principal); font-weight: 600; transition: all 0.2s ease-in-out; cursor: pointer; }
-    .portfolio-nav a.active { background-color: var(--vert-principal); color: white; font-size: 1.1rem; }
-    .portfolio-nav a:hover { background-color: var(--vert-principal); color: white; }
-
-    .projets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; padding: 1rem; }
-    .vignette { display: block; text-decoration: none; color: inherit; line-height: 0; font-size: 0; }
-    .vignette img { width: 100%; height: auto; border-radius: 10px; transition: transform 0.3s; display: block; object-fit: contain; }
-    .vignette:hover img { transform: scale(1.05); }
-
-    #lightbox { display: none; position: fixed; z-index: 1000; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; text-align:center; color:#fff; padding:1rem; }
-    #lightbox img { max-width:90%; max-height:75vh; border-radius:10px; margin-bottom:1rem; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-    #lightbox p { font-size:1.1rem; max-width:80%; }
-    #lightbox button { position:absolute; top:20px; right:30px; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
-  </style>
+  
 </head>
+	
 <body class="projets">
-  <header>
-    <nav>
-      <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
-      <ul id="menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="projets.html">Projets</a></li>
-        <li><a href="a_propos.html">À propos</a></li>
-      </ul>
-    </nav>
-	  <!-- Font Awesome en local -->
-  <link rel="stylesheet" href="fontawesome/css/all.css">
-  </header>
+<!--nouveau menu factorisé-->
+	<div id="menu-container"></div>
 
-  <main>
-    <div class="portfolio-nav" id="nav-buttons">
-      <!-- Les boutons seront générés automatiquement -->
-    </div>
-
-    <h1 id="page-title"></h1>
-    <div class="projets-grid" id="projets-container"></div>
-  </main>
-
-  <div id="lightbox">
-    <button id="close-lightbox" aria-label="Fermer">&times;</button>
-    <img src="" alt="" id="lightbox-image" />
-    <p id="lightbox-text"></p>
+<!--suppression pour soigner hamburger-->
+<!--<header>
+  <nav>
+    <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
+    <ul id="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="projets.html">projets</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="a_propos.html">À propos</a></li>
+    </ul>
+  </nav>
+</header>
+-->
+	
+<main>
+ 
+    <!-- Les boutons de catégories seront générés ici -->
   </div>
 
-  <!-- Inclure le JS généré par Python -->
-  <script src="categories.js"></script>
+  <h1 id="page-title"></h1>
+  <div class="projets-grid" id="projets-container"></div>
+</main>
 
-  <script>
-    // --- Menu mobile ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    menuToggle?.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
-    });
+<!-- Lightbox -->
+<div id="lightbox">
+  <button id="close-lightbox" aria-label="Fermer">&times;</button>
+  <img src="" alt="" id="lightbox-image" />
+  <p id="lightbox-text"></p>
+</div>
 
-    const titleEl = document.getElementById('page-title');
-    const container = document.getElementById('projets-container');
-    const navButtons = document.getElementById('nav-buttons');
+<!-- Script catégories -->
+<script src="categories.js"></script>
 
-    // --- Récupère les catégories pour cette page ---
-    const pageName = "projets";  // on fixe ici projets.html
-    const categories = allCategories[pageName];
+<script>
+const titleEl = document.getElementById('page-title');
+const container = document.getElementById('projets-container');
+const navButtons = document.getElementById('nav-buttons');
 
- 
+const pageName = "projets";
+const categories = allCategories[pageName];
 
-    // --- Fonction pour charger une catégorie ---
-function loadCategory(catKey) {
-  const cat = categories[catKey];
-  if (!cat) return;
 
-  titleEl.style.opacity = 0;
-  container.style.opacity = 0;
 
-  setTimeout(() => {
-    titleEl.textContent = cat.title;
-    container.innerHTML = "";
-
-    // --- Inclure la vignette comme première image ---
-    const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
-    //const allDesc = ["", ...cat.desc]; // commentaire de la vignette vide ou à modifier
-	const allDesc = cat.desc; // inclut déjà le commentaire de la vignette
-
-    allFiles.forEach((file, i) => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "vignette-wrapper";
-
-      const a = document.createElement("a");
-      a.className = "vignette";
-      a.href = "#";
-      a.innerHTML = `<img src="${cat.dir}${file}" alt="">`; // alt vide, pas de nom affiché
-
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.getElementById('lightbox-image').src = cat.dir + file;
-        document.getElementById('lightbox-text').textContent = allDesc[i];
-        document.getElementById('lightbox').style.display = 'flex';
-      });
-
-      wrapper.appendChild(a);
-      container.appendChild(wrapper);
-    });
-
-    titleEl.style.opacity = 1;
-    container.style.opacity = 1;
-  }, 200);
-}
-
-// --- Vue index des projets (vignettes dossiers) ---
-function loadProjectIndex() {
+// --- Vue index du projets (vignette = première image de chaque dossier) ---
+function loadprojetsIndex() {
   titleEl.textContent = "Projets";
   container.innerHTML = "";
-
-  document.querySelectorAll(".portfolio-nav a").forEach(a => {
-    a.classList.remove("active");
-  });
 
   Object.entries(categories).forEach(([key, cat]) => {
     if (!cat.vignette) return;
@@ -146,37 +78,74 @@ function loadProjectIndex() {
     title.textContent = cat.title;
 
     wrapper.appendChild(a);
-      
-	wrapper.appendChild(title);
-
+    wrapper.appendChild(title);
     container.appendChild(wrapper);
   });
 }
 
+// --- Fonction pour charger toutes les images d'une catégorie ---
+function loadCategory(catKey) {
+  const cat = categories[catKey];
+  if (!cat) return;
 
-    const params = new URLSearchParams(window.location.search);
-	const initialCat = params.get('cat');
+  titleEl.style.opacity = 0;
+  container.style.opacity = 0;
 
-	if (initialCat && categories[initialCat]) {
-  		loadCategory(initialCat);
-	} else {
-  		loadProjectIndex();
-	}
+  setTimeout(() => {
+    titleEl.textContent = cat.title;
+    container.innerHTML = "";
+
+    // --- Inclure la vignette comme première image ---
+    const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
+    const allDesc = cat.desc; // déjà complet avec vignette + autres images
 
 
-    // --- Lightbox ---
+    allFiles.forEach((file, i) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "vignette-wrapper";
+
+      const a = document.createElement("a");
+      a.className = "vignette";
+      a.href = "#";
+      a.innerHTML = `<img src="${cat.dir}${file}" alt="">`; // alt vide, pas de nom affiché
+
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('lightbox-image').src = cat.dir + file;
+        document.getElementById('lightbox-text').textContent = allDesc[i] || "";
+
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+
+      wrapper.appendChild(a);
+      container.appendChild(wrapper);
+    });
+
+    titleEl.style.opacity = 1;
+    container.style.opacity = 1;
+  }, 200);
+}
+
+// --- Chargement initial ---
+const params = new URLSearchParams(window.location.search);
+const initialCat = params.get('cat');
+if (initialCat && categories[initialCat]) {
+  loadCategory(initialCat);
+} else {
+  loadprojetsIndex();
+}
+
+// --- Lightbox ---
 document.getElementById('close-lightbox').addEventListener('click', () => {
   document.getElementById('lightbox').style.display = 'none';
 });
 document.getElementById('lightbox').addEventListener('click', (e) => {
   if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
 });
-  
-	</script>
-		  
-  
+</script>
 
-		<!-- BON BLOC pour les pastilles -->
+	  
+	<!-- BON BLOC pour les pastilles -->
 	<div class="contact-home">
   <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
     <i class="fa-solid fa-envelope"></i>
@@ -188,6 +157,18 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
     <i class="fa-brands fa-instagram"></i>
   </a>
 	</div>
+<link rel="stylesheet" href="menu.css">
+<script src="menu.js"></script>
 
-	</body>
+	<!--nouveau menu factorisé-->
+<script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
+    });
+</script>
+
+
+</body>
 </html>
