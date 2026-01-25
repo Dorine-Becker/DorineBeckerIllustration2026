@@ -631,13 +631,14 @@ body.portfolio::before,
 body.projets::before,
 body.a_propos::before {
   content: "";
-  position: absolute;
-  inset: 0; /* couvre tout le body */
-  background: url('images_accueil/fond_transparent.jpg') center/cover no-repeat;
-  opacity: 0.25;   /* transparence douce */
-  z-index: 50;     /* derrière le contenu mais devant le fond */
-  pointer-events: none; /* laisse passer les clics */
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+    url('images_accueil/fond_transparent.jpg') center / cover no-repeat;
+  z-index: -1;
 }
+
 
 /* =============================
    Contenu et pastilles au-dessus du voile
