@@ -3,136 +3,127 @@ const allCategories = {
     "charadesign": {
       "title": "Charadesign",
       "dir": "images_portfolio/Charadesign/",
-      "vignette": "images_portfolio/Charadesign/Agathe_bg.jpg",
+      "vignette": "images_portfolio/Charadesign/1Agathe.jpg",
       "files": [
-        "Charadesign_masques_colo.jpg",
-        "DRAKE.jpg",
-        "Loup_garou_chara.jpg"
+        "2.2Masques.jpg",
+        "3Loup_garou.jpg"
       ],
       "names": [
-        "Charadesign_masques_colo",
-        "DRAKE",
-        "Loup_garou_chara"
+        "2.2Masques",
+        "3Loup_garou"
       ],
       "desc": [
-        "",
-        "",
-        "",
-        ""
+        "Charadesign d'un PNJ pour du jeu de rôle",
+        "Line up d'une tribu masquée",
+        "Charadesign pour une figurine de jeu de rôle - Projet réalisé lors d'un stage avec Bruno Bessadi"
       ]
     },
-    "illustrations": {
-      "title": "Illustrations",
-      "dir": "images_portfolio/Illustrations/",
-      "vignette": "images_portfolio/Illustrations/Atelier.jpg",
+    "illustration": {
+      "title": "Illustration",
+      "dir": "images_portfolio/Illustration/",
+      "vignette": "images_portfolio/Illustration/1Patinage.jpg",
       "files": [
-        "Carte_postale.jpg",
-        "JDR_station_essence.jpg",
-        "Mockup_biere_golden2.jpg",
-        "Mockup_biere_red2.jpg",
-        "Mockup_biere_saphir2.jpg",
-        "Mockup_vinyle_face.jpg",
-        "Sherlock_2pages.jpg",
-        "Valco_Kem_illu.jpg"
+        "2Station_essence.jpg",
+        "3Mockup_biere_golden2.jpg",
+        "3Mockup_biere_red2.jpg",
+        "3Mockup_biere_saphir2.jpg",
+        "4Mockup_vinyle.jpg",
+        "5Sherlocked.jpg",
+        "6Valco_Kem.jpg",
+        "7Carte-postale.jpg",
+        "8Atelier.jpg"
       ],
       "names": [
-        "Carte_postale",
-        "JDR_station_essence",
-        "Mockup_biere_golden2",
-        "Mockup_biere_red2",
-        "Mockup_biere_saphir2",
-        "Mockup_vinyle_face",
-        "Sherlock_2pages",
-        "Valco_Kem_illu"
+        "2Station_essence",
+        "3Mockup_biere_golden2",
+        "3Mockup_biere_red2",
+        "3Mockup_biere_saphir2",
+        "4Mockup_vinyle",
+        "5Sherlocked",
+        "6Valco_Kem",
+        "7Carte-postale",
+        "8Atelier"
       ],
       "desc": [
-        "L'atelier rêvé !",
-        "En guise de carte de voeux",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Illustration pour les JO d'hiver 2026",
+        "Illustration pour le jeu de rôle Channel Fear",
+        "Design de canettes de bière",
+        "Design de canettes de bière",
+        "Design de canettes de bière",
+        "Design d'une pochette de vinyle",
+        "Illustration ludique Sherlock Holmes",
+        "Commande d'illustration décorative pour l'entreprise Valco Kempos",
+        "Carte de voeux",
+        "Atelier médiéval fantastique"
       ]
     },
-    "jeux": {
-      "title": "Jeux",
-      "dir": "images_portfolio/Jeux/",
-      "vignette": "images_portfolio/Jeux/Baker_street_picto.jpg",
+    "jeux de société": {
+      "title": "Jeux de société",
+      "dir": "images_portfolio/Jeux de société/",
+      "vignette": "images_portfolio/Jeux de société/1.1Tresor_fantome.jpg",
       "files": [
-        "Cherche_et_trouve2.0.jpg",
-        "Drako_illu_final.jpg",
-        "Drako_picto.jpg",
-        "Leaf.jpg",
-        "Les-comperes-de-Bakerstreet.jpg",
-        "Les_compères_de_Bakerstreet.jpg",
-        "Mockup_boite_sherlock.png",
-        "Mockup_drako.jpg",
-        "Tresor_fantome_alric.jpg",
-        "Tresor_fantome_canonnier.jpg",
-        "Tresor_fantome_cuisinier.jpg",
-        "Tresor_fantome_matelot.jpg",
-        "Tresor_fantome_quartier_maitre.jpg",
-        "Tresor_fantome_singe.jpg",
-        "Tresor_fantome_vigie.jpg"
+        "1.2Tresor_fantome.jpg",
+        "1.3Tresor_fantome.jpg",
+        "2.1Leaf.jpg",
+        "2.2Leaf_mockup.jpg",
+        "3.1Les-comperes-de-BS.jpg",
+        "3.2Les-comperes-de-BS_mockup.jpg",
+        "3.3Les-comperes-de-BS_picto.jpg",
+        "4Cherche_et_trouve.jpg"
       ],
       "names": [
-        "Cherche_et_trouve2.0",
-        "Drako_illu_final",
-        "Drako_picto",
-        "Leaf",
-        "Les-comperes-de-Bakerstreet",
-        "Les_compères_de_Bakerstreet",
-        "Mockup_boite_sherlock",
-        "Mockup_drako",
-        "Tresor_fantome_alric",
-        "Tresor_fantome_canonnier",
-        "Tresor_fantome_cuisinier",
-        "Tresor_fantome_matelot",
-        "Tresor_fantome_quartier_maitre",
-        "Tresor_fantome_singe",
-        "Tresor_fantome_vigie"
+        "1.2Tresor_fantome",
+        "1.3Tresor_fantome",
+        "2.1Leaf",
+        "2.2Leaf_mockup",
+        "3.1Les-comperes-de-BS",
+        "3.2Les-comperes-de-BS_mockup",
+        "3.3Les-comperes-de-BS_picto",
+        "4Cherche_et_trouve"
       ],
       "desc": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Illustration de cartes pour un jeu - Projet réalisé lors d'un stage avec Jules Dubost",
+        "Illustration de cartes pour un jeu - Projet réalisé lors d'un stage avec Jules Dubost",
+        "Illustration de cartes pour un jeu - Projet réalisé lors d'un stage avec Jules Dubost",
+        "Couverture d'une boîte de jeu",
+        "Couverture d'une boîte de jeu",
+        "Couverture d'une boîte d'un jeu Sherlock Holmes",
+        "Couverture d'une boîte d'un jeu Sherlock Holmes",
+        "Pictogrammes pour un jeu Sherlock Holmes",
+        "Cherche et Trouve, parodie de Donjons et Dragons"
       ]
     },
     "livres": {
       "title": "Livres",
       "dir": "images_portfolio/Livres/",
-      "vignette": "images_portfolio/Livres/Couv_Edward_et_cie.jpg",
+      "vignette": "images_portfolio/Livres/1.1Pinocchio.jpg",
       "files": [
-        "Design_Pinocchio.jpg",
-        "Deviant_couv.jpg",
-        "Euphoria_seb_final.jpg"
+        "1.2Pinocchio_mockup.jpg",
+        "2.1Deviant.jpg",
+        "2.2Deviant_mockup.jpg",
+        "3.1Edward_et_cie.jpg",
+        "3.2Edward_mockup.jpg",
+        "4.1Euphoria.jpg",
+        "4.2Euphoria_mockup.jpg"
       ],
       "names": [
-        "Design_Pinocchio",
-        "Deviant_couv",
-        "Euphoria_seb_final"
+        "1.2Pinocchio_mockup",
+        "2.1Deviant",
+        "2.2Deviant_mockup",
+        "3.1Edward_et_cie",
+        "3.2Edward_mockup",
+        "4.1Euphoria",
+        "4.2Euphoria_mockup"
       ],
       "desc": [
-        "",
-        "",
-        "",
-        ""
+        "Couverture d'un livre jeunesse",
+        "Couverture d'un livre jeunesse",
+        "Couverture d'un projet de livre illustré",
+        "Couverture d'un projet de livre illustré",
+        "Couverture d'une bande-dessinée jeunesse",
+        "Couverture d'une bande-dessinée jeunesse",
+        "Couverture d'un roman sur l'Égypte antique",
+        "Couverture d'un roman sur l'Égypte antique"
       ]
     }
   },
@@ -184,7 +175,7 @@ const allCategories = {
         "drako-aetherya-pocket"
       ],
       "desc": [
-        "Boîte pour le jeu",
+        "",
         "",
         "",
         "",
