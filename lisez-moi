@@ -66,10 +66,7 @@ SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
 PAssPhrase
 DorineManosq04ocatar
 
-dépôt github : PUSH synchro DOWNLOAD
-git fetch origin
-git reset --hard origin/main
-git clean -fd
+
 
 ==================
 git status
@@ -80,3 +77,12 @@ git push origin main
 git push origin main --force /// n’est jamais nécessaire pour ce genre de mise à jour
 
 Il sert uniquement si tu veux réécrire l’historique ou corriger un push précédent
+
+
+--------------
+Et vers le bas =
+
+dépôt github : PUSH synchro DOWNLOAD
+git fetch origin
+git reset --hard origin/main
+git clean -fd

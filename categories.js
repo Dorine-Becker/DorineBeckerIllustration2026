@@ -5,15 +5,18 @@ const allCategories = {
       "dir": "images_portfolio/Charadesign/",
       "vignette": "images_portfolio/Charadesign/1Agathe.jpg",
       "files": [
+        "2.1Masques.jpg",
         "2.2Masques.jpg",
         "3Loup_garou.jpg"
       ],
       "names": [
+        "2.1Masques",
         "2.2Masques",
         "3Loup_garou"
       ],
       "desc": [
         "Charadesign d'un PNJ pour du jeu de rôle",
+        "Charadesign du druide d'une tribu masquée",
         "Line up d'une tribu masquée",
         "Charadesign pour une figurine de jeu de rôle - Projet réalisé lors d'un stage avec Bruno Bessadi"
       ]
@@ -52,7 +55,7 @@ const allCategories = {
         "Design de canettes de bière",
         "Design d'une pochette de vinyle",
         "Illustration ludique Sherlock Holmes",
-        "Commande d'illustration décorative pour l'entreprise Valco Kempos",
+        "Commande d'illustration décorative pour l'entreprise Valco Kem",
         "Carte de voeux",
         "Atelier médiéval fantastique"
       ]

@@ -2,7 +2,7 @@
    Variables et base générale
 ============================= */
 :root {
-  --vert-principal: #3d5b43;
+  --vert-principal: #240046;
   --orange-accent: #eec373;
   --blanc-transp: rgba(255, 255, 255, 0.7);
   --blanc-transp-mobile: rgba(255, 255, 255, 0.6);
@@ -154,7 +154,7 @@ nav ul li a:hover {
 
 .bouton-lien {
   padding: 0.75rem 1.5rem;
-  background-color: var(--vert-principal);
+  background-color: #5a189a;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -171,12 +171,12 @@ nav ul li a:hover {
   justify-content: center;
   margin-top: 1.5rem; /* ← espace sous les autres boutons */
 }
-
+/* enlevé pour test
 :root {
   --vert-principal: #3d5b43;
   --orange-accent: #e07b3d;
 }
-
+*/
 /* =============================
    Styles généraux des pastilles
 ============================= */
@@ -334,10 +334,6 @@ body.projets main {
 }
 
 
-
-/* =============================
-   VIGNETTES CARRÉES CENTRÉES
-============================= */
 /* =============================
    VIGNETTES CARRÉES CENTRÉES + NOM SOUS IMAGE
 ============================= */
