@@ -1,6 +1,97 @@
 /* =============================
    Variables et base générale
 ============================= */
+
+/*OVB=====================================*/
+/* =============================
+   Déclaration des polices
+============================= */
+
+/* --- Josefin Sans (Light, Regular, Bold) --- */
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('fonts/JosefinSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('fonts/JosefinSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('fonts/JosefinSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- MaPolice (Regular uniquement) --- */
+@font-face {
+  font-family: 'MaPolice';
+  src: url('fonts/fa-regular-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Texte courant */
+html, body, p, li, .btn-accent {
+  font-family: 'JosefinSans', sans-serif;
+  font-weight: 300;  /* light pour le texte normal */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* H1 / H2 / H3 → MaPolice pour impact */
+h2, h3, .titre-special {
+  font-family: 'MaPolice', sans-serif;
+  font-weight: 400;  /* Regular uniquement */
+  color: var(--vert-principal);
+  line-height: 1.2;
+}
+
+/* H4/H5/H6 → mix léger si besoin */
+h4, h5, h6 {
+  font-family: 'JosefinSans', sans-serif;
+  font-weight: 400;
+}
+
+Boutons principaux
+.bouton-lien, .btn-accent {
+  font-family: 'MaPolice', sans-serif;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+} 
+
+/* Texte secondaire */
+cite, .caption, .note {
+  font-family: 'JosefinSans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #555;
+}
+
+.apropos-text {
+    font-family: 'JosefinSans', sans-serif; /* texte courant */
+    font-weight: 400;                       /* version Bold */
+}
+
+.titre-fixe .nom-principal {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+}
+
+/*OVB===================================*/
+
+
 :root {
   --vert-principal: #240046;
   --orange-accent: #eec373;
@@ -33,67 +124,6 @@ h1 {
   color: var(--vert-principal);
 }
 
-/* =============================
-   Menu / Navigation
-SUPPRESSION pour soigner menu hamburger
-
-nav {
-  position: relative;
-  z-index: 20;
-}
-
-#menu-toggle {
-  display: none;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  z-index: 25;
-  background: var(--vert-principal);
-  color: white;
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 1rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: var(--vert-principal);
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: var(--orange-accent);
-}
-
-@media (max-width: 768px) {
-  #menu-toggle { display: block; }
-
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    width: 200px;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: none;
-  }
-
-  nav ul.active { display: flex; }
-}
-============================= */
 
 
 /* =============================
@@ -287,6 +317,7 @@ body.portfolio::before {
   inset: 0;
   background-color: var(--blanc-transp);
 }
+
 
 /* =============================
    PROJETS
