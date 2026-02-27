@@ -257,6 +257,7 @@ h1 {
    Pastilles fixées en bas, visibles sur toutes les pages
 ============================= */
 /* Pastilles fixées en bas pour toutes les pages */
+body.index .contact-home,
 body.accueil .contact-home,
 body.portfolio .contact-home,
 body.projets .contact-home {
