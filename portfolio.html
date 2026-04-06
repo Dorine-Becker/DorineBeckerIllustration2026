@@ -1,63 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">      <!-- pour les patsilles ?-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dorine Becker – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  
 </head>
 	
 <body class="portfolio">
-<!--nouveau menu factorisé-->
-	<div id="menu-container"></div>
 
-<!--suppression pour soigner hamburger-->
-<!--<header>
-  <nav>
-    <button id="menu-toggle" aria-label="Afficher le menu" aria-expanded="false">☰</button>
-    <ul id="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="projets.html">Projets</a></li>
-      <li><a href="a_propos.html">À propos</a></li>
-    </ul>
-  </nav>
-</header>
--->
-	
+<div id="menu-container"></div>
+
 <main>
- 
-    <!-- Les boutons de catégories seront générés ici -->
-  </div>
-
   <h1 id="page-title"></h1>
   <div class="projets-grid" id="projets-container"></div>
 </main>
 
-<!-- Lightbox -->
+<!-- ✅ LIGHTBOX UNIQUE -->
 <div id="lightbox">
   <button id="close-lightbox" aria-label="Fermer">&times;</button>
+<button id="prev-lightbox" aria-label="Précédent">‹</button>
+<button id="next-lightbox" aria-label="Suivant">›</button>
+
   <img src="" alt="" id="lightbox-image" />
   <p id="lightbox-text"></p>
 </div>
 
-<!-- Script catégories -->
 <script src="categories.js"></script>
 
 <script>
 const titleEl = document.getElementById('page-title');
 const container = document.getElementById('projets-container');
-const navButtons = document.getElementById('nav-buttons');
 
-const pageName = "portfolio";
-const categories = allCategories[pageName];
+const categories = allCategories["portfolio"];
 
+let currentIndex = 0;
+let currentFiles = [];
+let currentDesc = [];
+let currentDir = "";
 
-
-// --- Vue index du portfolio (vignette = première image de chaque dossier) ---
+// --- INDEX ---
 function loadPortfolioIndex() {
   titleEl.textContent = "Portfolio";
   container.innerHTML = "";
@@ -83,70 +67,100 @@ function loadPortfolioIndex() {
   });
 }
 
-// --- Fonction pour charger toutes les images d'une catégorie ---
+// --- CATÉGORIE ---
 function loadCategory(catKey) {
   const cat = categories[catKey];
   if (!cat) return;
 
-  titleEl.style.opacity = 0;
-  container.style.opacity = 0;
+  titleEl.textContent = cat.title;
+  container.innerHTML = "";
 
-  setTimeout(() => {
-    titleEl.textContent = cat.title;
-    container.innerHTML = "";
+  const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
+  const allDesc = cat.desc;
 
-    // --- Inclure la vignette comme première image ---
-    const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
-    const allDesc = cat.desc; // déjà complet avec vignette + autres images
+  allFiles.forEach((file, i) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "vignette-wrapper";
 
+    const a = document.createElement("a");
+    a.className = "vignette";
+    a.href = "#";
+    a.innerHTML = `<img src="${cat.dir}${file}" alt="">`;
 
-    allFiles.forEach((file, i) => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "vignette-wrapper";
+    a.addEventListener('click', e => {
+      e.preventDefault();
 
-      const a = document.createElement("a");
-      a.className = "vignette";
-      a.href = "#";
-      a.innerHTML = `<img src="${cat.dir}${file}" alt="">`; // alt vide, pas de nom affiché
+      currentFiles = allFiles;
+      currentDesc = allDesc;
+      currentIndex = i;
+      currentDir = cat.dir;
 
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.getElementById('lightbox-image').src = cat.dir + file;
-        document.getElementById('lightbox-text').textContent = allDesc[i] || "";
-
-        document.getElementById('lightbox').style.display = 'flex';
-      });
-
-      wrapper.appendChild(a);
-      container.appendChild(wrapper);
+      updateLightbox();
+      document.getElementById('lightbox').style.display = 'flex';
     });
 
-    titleEl.style.opacity = 1;
-    container.style.opacity = 1;
-  }, 200);
+    wrapper.appendChild(a);
+    container.appendChild(wrapper);
+  });
 }
 
-// --- Chargement initial ---
+// --- UPDATE IMAGE ---
+function updateLightbox() {
+  if (!currentFiles.length) return;
+
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxText = document.getElementById('lightbox-text');
+
+  // Met à jour l'image
+  lightboxImage.src = currentDir + currentFiles[currentIndex];
+
+  // Met à jour la description
+  lightboxText.textContent = currentDesc[currentIndex] || "";
+}
+
+// --- ROUTAGE ---
 const params = new URLSearchParams(window.location.search);
-const initialCat = params.get('cat');
-if (initialCat && categories[initialCat]) {
-  loadCategory(initialCat);
+const cat = params.get('cat');
+
+if (cat && categories[cat]) {
+  loadCategory(cat);
 } else {
   loadPortfolioIndex();
 }
 
-// --- Lightbox ---
-document.getElementById('close-lightbox').addEventListener('click', () => {
-  document.getElementById('lightbox').style.display = 'none';
+// --- LIGHTBOX: croix et clic sur fond ---
+const lightbox = document.getElementById('lightbox');
+const closeBtn = document.getElementById('close-lightbox');
+const nextBtn = document.getElementById('next-lightbox');
+const prevBtn = document.getElementById('prev-lightbox'); // bouton précédent
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
 });
-document.getElementById('lightbox').addEventListener('click', (e) => {
-  if (e.target.id === 'lightbox') e.currentTarget.style.display = 'none';
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') {
+    lightbox.style.display = 'none';
+  }
+});
+
+// --- BOUTON SUIVANT ---
+nextBtn.addEventListener('click', () => {
+  if (!currentFiles.length) return;
+  currentIndex = (currentIndex + 1) % currentFiles.length;
+  updateLightbox();
+});
+
+// --- BOUTON PRÉCÉDENT ---
+prevBtn.addEventListener('click', () => {
+  if (!currentFiles.length) return;
+  currentIndex = (currentIndex - 1 + currentFiles.length) % currentFiles.length;
+  updateLightbox();
 });
 </script>
 
-	  
-	<!-- BON BLOC pour les pastilles -->
-	<div class="contact-home">
+<!-- CONTACT -->
+<div class="contact-home">
   <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
     <i class="fa-solid fa-envelope"></i>
   </a>
@@ -156,19 +170,18 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
   <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button instagram">
     <i class="fa-brands fa-instagram"></i>
   </a>
-	</div>
+</div>
+
 <link rel="stylesheet" href="menu.css">
 <script src="menu.js"></script>
 
-	<!--nouveau menu factorisé-->
 <script>
-  fetch("menu.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("menu-container").innerHTML = html;
-    });
+fetch("menu.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("menu-container").innerHTML = html;
+  });
 </script>
-
 
 </body>
 </html>

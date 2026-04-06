@@ -55,7 +55,7 @@ const allCategories = {
         "Design de canettes de bière",
         "Design d'une pochette de vinyle",
         "Illustration ludique Sherlock Holmes",
-        "Commande d'illustration décorative pour l'entreprise Valco Kempos",
+        "Commande d'illustration décorative pour l'entreprise Valco Kem",
         "Carte de voeux",
         "Atelier médiéval fantastique"
       ]
@@ -134,14 +134,14 @@ const allCategories = {
     "corback": {
       "title": "Corback",
       "dir": "images_projets/Corback/",
-      "vignette": "images_projets/Corback/Corback_perso1.jpg",
+      "vignette": "images_projets/Corback/Corback_perso1.png",
       "files": [
-        "Corback_perso2.jpg",
-        "Corback_perso3.jpg",
-        "Corback_perso4.jpg",
-        "Corback_perso5.jpg",
-        "Corback_recherches1.jpg",
-        "Corback_recherches2.jpg"
+        "Corback_perso2.png",
+        "Corback_perso3.png",
+        "Corback_perso4.png",
+        "Corback_perso5.png",
+        "Corback_recherches1.png",
+        "Corback_recherches2.png"
       ],
       "names": [
         "Corback_perso2",
@@ -152,78 +152,99 @@ const allCategories = {
         "Corback_recherches2"
       ],
       "desc": [
-        "Carte personnage",
-        "Carte personnage",
-        "Carte personnage",
-        "Carte personnage",
-        "Carte personnage",
-        "Recherches et déclinaisons de corbeaux",
-        "Recherches et déclinaisons de corbeaux"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
       ]
     },
     "drako": {
       "title": "Drako",
       "dir": "images_projets/Drako/",
-      "vignette": "images_projets/Drako/1Drako_julie_boite.jpg",
+      "vignette": "images_projets/Drako/Drako_carte_gobelin.png",
       "files": [
-        "2Drako_picto_cartes.jpg",
-        "3Drako_couv.jpg",
-        "Mockup_drako.jpg"
+        "Drako_cartes.jpg",
+        "Drako_couv_mockup.jpg",
+        "Drako_picto.jpg",
+        "drako-aetherya-pocket.jpg"
       ],
       "names": [
-        "2Drako_picto_cartes",
-        "3Drako_couv",
-        "Mockup_drako"
+        "Drako_cartes",
+        "Drako_couv_mockup",
+        "Drako_picto",
+        "drako-aetherya-pocket"
       ],
       "desc": [
-        "Version finale commercialisée",
-        "Réalisation de pictogrammes pour le jeu",
-        "Proposition de couverture (titre designé par Julie Gruet)",
+        "",
+        "",
+        "",
+        "",
         ""
       ]
     },
-    "pfc": {
-      "title": "PFC",
-      "dir": "images_projets/PFC/",
-      "vignette": "images_projets/PFC/1PFC_couv.jpg",
+    "grimms_investigations": {
+      "title": "Grimms Investigations",
+      "dir": "images_projets/Grimms_Investigations/",
+      "vignette": "images_projets/Grimms_Investigations/Mockup_livre.png",
       "files": [
-        "2PFC_couv_test.png",
-        "3PFC_Mockup_livre.png",
-        "3PFC_boite_mockup.png",
-        "3PFC_pages1.jpg",
-        "3PFC_pages2.jpg",
-        "3PFC_pages3.jpg",
-        "3PFC_pages4.jpg",
-        "3PFC_pages5.jpg",
-        "5PFC_cartes_mockup.png",
-        "6PFC_cartes_perso.png",
-        "7PFC_cartes_objets.png"
+        "PFC_boite_mockup.png",
+        "PFC_cartes_bonbons.jpg",
+        "PFC_cartes_dos.jpg",
+        "PFC_cartes_dos2.jpg",
+        "PFC_cartes_escargots.jpg",
+        "PFC_cartes_frog.jpg",
+        "PFC_cartes_gretel.jpg",
+        "PFC_cartes_hansel.jpg",
+        "PFC_cartes_mockup.png",
+        "PFC_cartes_panier.jpg",
+        "PFC_couv.jpg",
+        "PFC_couv_test.png",
+        "PFC_pages.jpg",
+        "PFC_pages2.jpg",
+        "PFC_pages3.jpg",
+        "PFC_pages4.jpg",
+        "PFC_pages5.jpg"
       ],
       "names": [
-        "2PFC_couv_test",
-        "3PFC_Mockup_livre",
-        "3PFC_boite_mockup",
-        "3PFC_pages1",
-        "3PFC_pages2",
-        "3PFC_pages3",
-        "3PFC_pages4",
-        "3PFC_pages5",
-        "5PFC_cartes_mockup",
-        "6PFC_cartes_perso",
-        "7PFC_cartes_objets"
+        "PFC_boite_mockup",
+        "PFC_cartes_bonbons",
+        "PFC_cartes_dos",
+        "PFC_cartes_dos2",
+        "PFC_cartes_escargots",
+        "PFC_cartes_frog",
+        "PFC_cartes_gretel",
+        "PFC_cartes_hansel",
+        "PFC_cartes_mockup",
+        "PFC_cartes_panier",
+        "PFC_couv",
+        "PFC_couv_test",
+        "PFC_pages",
+        "PFC_pages2",
+        "PFC_pages3",
+        "PFC_pages4",
+        "PFC_pages5"
       ],
       "desc": [
-        "Couverture du livre illustré",
-        "Test couleur pour la couverture",
         "",
-        "Boîte de rangement pour le livre et les cartes",
-        "Page 1 du chapitre 1",
-        "Page 2 du chapitre 1",
-        "Page 3 du chapitre 1",
-        "Page 4 du chapitre 1",
-        "Page 5 du chapitre 1",
         "",
-        "Cartes personnages",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         ""
       ]
     }
