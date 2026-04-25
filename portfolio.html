@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,19 +19,23 @@
   <div class="projets-grid" id="projets-container"></div>
 </main>
 
-<!-- ✅ LIGHTBOX UNIQUE -->
 <div id="lightbox">
   <button id="close-lightbox" aria-label="Fermer">&times;</button>
-<button id="prev-lightbox" aria-label="Précédent">‹</button>
-<button id="next-lightbox" aria-label="Suivant">›</button>
 
-  <img src="" alt="" id="lightbox-image" />
+  <div id="lightbox-inner">
+    <button id="prev-lightbox" aria-label="Précédent">‹</button>
+    <img src="" alt="" id="lightbox-image" />
+    <button id="next-lightbox" aria-label="Suivant">›</button>
+  </div>
+
   <p id="lightbox-text"></p>
 </div>
 
 <script src="categories.js"></script>
 
+
 <script>
+let isLightboxOpen = false;
 const titleEl = document.getElementById('page-title');
 const container = document.getElementById('projets-container');
 
@@ -96,7 +101,7 @@ function loadCategory(catKey) {
       currentDir = cat.dir;
 
       updateLightbox();
-      document.getElementById('lightbox').style.display = 'flex';
+      openLightbox();
     });
 
     wrapper.appendChild(a);
@@ -157,6 +162,95 @@ prevBtn.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + currentFiles.length) % currentFiles.length;
   updateLightbox();
 });
+
+// =============================
+// LIGHTBOX PREMIUM
+// =============================
+// Animation ouverture
+function openLightbox() {
+  lightbox.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  // Supprime les styles inline des boutons de navigation
+  prevBtn.removeAttribute('style');
+  nextBtn.removeAttribute('style');
+
+  requestAnimationFrame(() => {
+    lightbox.classList.add('active');
+  });
+
+  isLightboxOpen = true;
+}
+
+// Animation fermeture
+function closeLightbox() {
+  lightbox.classList.remove('active');
+
+  setTimeout(() => {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  }, 250);
+
+  isLightboxOpen = false;
+}
+
+
+
+// Fermer (croix + fond)
+closeBtn.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+// Navigation clavier
+document.addEventListener('keydown', (e) => {
+  if (!isLightboxOpen) return;
+
+  switch (e.key) {
+    case 'Escape':
+      closeLightbox();
+      break;
+
+    case 'ArrowRight':
+      nextBtn.click();
+      break;
+
+    case 'ArrowLeft':
+      prevBtn.click();
+      break;
+  }
+});
+
+// Clic sur image = suivant
+document.getElementById('lightbox-image').addEventListener('click', () => {
+  nextBtn.click();
+});
+
+// Swipe mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightbox.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = touchEndX - touchStartX;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff < 0) {
+    nextBtn.click(); // swipe gauche
+  } else {
+    prevBtn.click(); // swipe droite
+  }
+}
 </script>
 
 <!-- CONTACT -->

@@ -34,69 +34,6 @@ h1 {
 }
 
 /* =============================
-   Menu / Navigation
-SUPPRESSION pour soigner menu hamburger
-
-nav {
-  position: relative;
-  z-index: 20;
-}
-
-#menu-toggle {
-  display: none;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  z-index: 25;
-  background: var(--vert-principal);
-  color: white;
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 1rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: var(--vert-principal);
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: var(--orange-accent);
-}
-
-@media (max-width: 768px) {
-  #menu-toggle { display: block; }
-
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    width: 200px;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: none;
-  }
-
-  nav ul.active { display: flex; }
-}
-============================= */
-
-
-/* =============================
    Diaporama accueil
 ============================= */
 .slideshow {
@@ -166,19 +103,9 @@ nav ul li a:hover {
   background-color: var(--orange-accent);
   color: var(--vert-principal);
 }
-.liens-centre {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem; /* ← espace sous les autres boutons */
-}
-/* enlevé pour test
-:root {
-  --vert-principal: #3d5b43;
-  --orange-accent: #e07b3d;
-}
-*/
+
 /* =============================
-   Styles généraux des pastilles
+   Footer buttons (contact)
 ============================= */
 .footer-button {
   display: flex;
@@ -188,28 +115,22 @@ nav ul li a:hover {
   color: white;
   text-decoration: none;
   transition: transform 0.2s, background-color 0.2s;
-  opacity: 1; /* force l'opacité pleine */
 }
 
-/* Couleurs par icône */
 .footer-button.mail { background-color: #3d5b43; }
 .footer-button.phone { background-color: #2d7a7a; }
 .footer-button.instagram { background-color: #e4405f; }
 
-/* Hover général */
-.footer-button:hover { transform: scale(1.2); }
-.footer-button.mail:hover { background-color: #2e4432; }
-.footer-button.phone:hover { background-color: #1f5555; }
-.footer-button.instagram:hover { background-color: #c1355a; }
+.footer-button:hover {
+  transform: scale(1.2);
+}
 
-/* =============================
-   Pastilles centrées sur la page
-============================= */
+/* Contact home */
 .contact-home {
   display: flex;
-  justify-content: center; /* centre horizontalement */
-  gap: 4rem;               /* espace entre icônes */
-  margin: 4rem 0;          /* marge verticale */
+  justify-content: center;
+  gap: 4rem;
+  margin: 4rem 0;
 }
 
 .contact-home .footer-button {
@@ -218,18 +139,10 @@ nav ul li a:hover {
   font-size: 32px;
 }
 
-/* Hover spécifique centrées (un peu plus grand) */
-.contact-home .footer-button:hover {
-  transform: scale(1.25);
-}
-
-/* =============================
-   Pastilles fixées en bas, visibles sur toutes les pages
-============================= */
-/* Pastilles fixées en bas pour toutes les pages */
-body.accueil .contact-home,
+/* Fix bas pages */
 body.portfolio .contact-home,
-body.projets .contact-home {
+body.projets .contact-home,
+body.a_propos .contact-home {
   position: fixed;
   bottom: 20px;
   width: 100%;
@@ -239,390 +152,17 @@ body.projets .contact-home {
   margin: 0;
 }
 
-
-
-
 /* =============================
-   Footer fixe en bas à droite
-============================= */
-.footer-fixe {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.footer-fixe .footer-button {
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
-}
-
-/* =============================
-   Footer bas de page
-============================= */
-.site-footer {
-  text-align: center;
-  margin-top: 100px;
-  padding: 1rem 0;
-  color: #3d5b43;
-  font-weight: 500;
-}
-
-/* =============================
-   Pages a_propos / portfolio
+   Pages fond
 ============================= */
 body.a_propos,
-body.portfolio {
-  background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
-  position: relative;
-}
-
-body.a_propos::before,
-body.portfolio::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--blanc-transp);
-}
-
-/* =============================
-   PROJETS
-============================= */
+body.portfolio,
 body.projets {
   background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
   position: relative;
 }
 
-body.projets::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--blanc-transp-sm);
-}
-
-body.projets main {
-  position: relative;
-  z-index: 1;
-}
-
-/* Navigation catégories */
-.portfolio-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.portfolio-nav a {
-  text-decoration: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  border: 2px solid var(--vert-principal);
-  color: var(--vert-principal);
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-
-.portfolio-nav a.active,
-.portfolio-nav a:hover {
-  background-color: var(--vert-principal);
-  color: white;
-}
-
-
-/* =============================
-   VIGNETTES CARRÉES CENTRÉES + NOM SOUS IMAGE
-============================= */
-body.projets .projets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 260px);
-  gap: 1.5rem;
-  padding: 1rem;
-  justify-content: center; /* centre les colonnes si ligne incomplète */
-}
-
-/* wrapper autour de l'image + titre */
-body.projets .vignette-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* image carrée */
-body.projets .vignette-wrapper .vignette {
-  width: 260px;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: rgba(255,255,255,0.4);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  display: block;
-}
-
-body.projets .vignette-wrapper .vignette img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.35s ease;
-  display: block;
-}
-
-body.projets .vignette-wrapper .vignette:hover img {
-  transform: scale(1.07);
-}
-
-/* titre sous la vignette */
-body.projets .vignette-wrapper .vignette-title {
-  margin-top: 0.8rem;  /* espace sous l'image */
-  font-weight: bold;
-  font-size: 1rem;
-  color: var(--vert-principal);
-  width: 100%;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-/* responsive : colonnes + images plus petites */
-@media (max-width: 600px) {
-  body.projets .projets-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-
-  body.projets .vignette-wrapper .vignette {
-    width: 100%;
-  }
-}
-
-/* =============================
-   Nom du projet sous chaque vignette
-============================= */
-body.projets .vignette {
-  display: flex;
-  flex-direction: column;  /* image + titre vertical */
-  align-items: center;
-  text-align: center;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: rgba(255,255,255,0.4);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-body.projets .vignette img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.35s ease;
-  display: block;
-}
-
-body.projets .vignette:hover img {
-  transform: scale(1.07);
-}
-
-body.projets .vignette .vignette-title {
-  margin-top: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-  color: var(--vert-principal);
-  width: 100%;
-  word-wrap: break-word;
-}
-
-/* =============================
-   PORTFOLIO
-============================= */
-body.portfolio {
-  background: url('images/Bandeau/bandeau1.jpg') center/cover no-repeat;
-  position: relative;
-}
-
-body.portfolio::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--blanc-transp-sm); /* voile clair identique à projets.html */
-  pointer-events: none;
-  z-index: 0;
-}
-
-body.portfolio main {
-  position: relative;
-  z-index: 1; /* contenu au-dessus du voile */
-}
-
-/* Navigation catégories (boutons en haut) */
-body.portfolio .portfolio-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-body.portfolio .portfolio-nav a {
-  text-decoration: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  border: 2px solid var(--vert-principal);
-  color: var(--vert-principal);
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-
-body.portfolio .portfolio-nav a.active,
-body.portfolio .portfolio-nav a:hover {
-  background-color: var(--vert-principal);
-  color: white;
-}
-
-/* =============================
-   VIGNETTES CARRÉES CENTRÉES + NOM SOUS IMAGE
-============================= */
-body.portfolio .projets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 260px);
-  gap: 1.5rem;
-  padding: 1rem;
-  justify-content: center; /* centre les colonnes si ligne incomplète */
-}
-
-/* wrapper autour de l'image + titre */
-body.portfolio .vignette-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* image carrée */
-body.portfolio .vignette-wrapper .vignette {
-  width: 260px;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: rgba(255,255,255,0.4);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  display: block;
-}
-
-body.portfolio .vignette-wrapper .vignette img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.35s ease;
-  display: block;
-}
-
-body.portfolio .vignette-wrapper .vignette:hover img {
-  transform: scale(1.07);
-}
-
-/* titre sous la vignette */
-body.portfolio .vignette-wrapper .vignette-title {
-  margin-top: 0.8rem;
-  font-weight: bold;
-  font-size: 1rem;
-  color: var(--vert-principal);
-  width: 100%;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-/* responsive : colonnes + images plus petites */
-@media (max-width: 600px) {
-  body.portfolio .projets-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-
-  body.portfolio .vignette-wrapper .vignette {
-    width: 100%;
-  }
-}
-
-
-
-/* =============================
-   Lightbox
-============================= */
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  padding: 1rem;
-}
-
-#lightbox img {
-  max-width: 90%;
-  max-height: 75vh;
-  border-radius: 10px;
-}
-
-#lightbox p {
-  color: white;
-  margin-top: 1rem;
-}
-
-#lightbox button {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-form label, 
-form input, 
-form textarea, 
-form button {
-  display: block;        /* chaque élément sur sa propre ligne */
-  width: 100%;           /* prend toute la largeur disponible */
-  margin-bottom: 1rem;   /* espace entre les champs */
-  box-sizing: border-box; /* pour éviter que padding déborde */
-}
-
-/* =============================
-   Footer copyright
-============================= */
-.site-footer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 0.85rem;
-  color: #555;
-  z-index: 15; /* en dessous des pastilles */
-  pointer-events: none; /* évite de bloquer les clics */
-}
-
-.site-footer p {
-  margin: 0;
-}
-/* Masquer le copyright sur mobile */
-@media (max-width: 600px) {
-  .site-footer {
-    display: none;
-  }
-}
-
-/* =============================
-   Fond semi-transparent derrière le contenu (sauf accueil)
-============================= */
+/* voile global */
 body.portfolio::before,
 body.projets::before,
 body.a_propos::before {
@@ -635,84 +175,188 @@ body.a_propos::before {
   z-index: -1;
 }
 
-
 /* =============================
-   Contenu et pastilles au-dessus du voile
+   Portfolio / Projets
 ============================= */
 body.portfolio main,
 body.projets main,
-body.a_propos main,
-body.portfolio .contact-home,
-body.projets .contact-home,
-body.a_propos .contact-home {
-  position: relative; /* contenu au-dessus du ::before */
+body.a_propos main {
+  position: relative;
   z-index: 51;
 }
 
-/* =============================
-   Pastilles fixées en bas pour portfolio, projets et a_propos
-============================= */
-body.portfolio .contact-home,
-body.projets .contact-home,
-body.a_propos .contact-home {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
+/* grille */
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 260px);
+  gap: 1.5rem;
+  padding: 1rem;
   justify-content: center;
-  gap: 2rem;
-  z-index: 101;  /* au-dessus du voile */
-  margin: 0;
 }
 
+.vignette-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.vignette-wrapper .vignette {
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.vignette-wrapper .vignette img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.vignette-wrapper .vignette:hover img {
+  transform: scale(1.07);
+}
+
+.vignette-title {
+  margin-top: 0.8rem;
+  font-weight: bold;
+  color: var(--vert-principal);
+}
 
 /* =============================
-   Lightbox - flèches latérales
+   LIGHTBOX PREMIUM
 ============================= */
-/* Bouton générique flèche */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  user-select: none;
+}
+
+#lightbox.active {
+  opacity: 1;
+}
+
+#lightbox-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centre verticalement */
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 80vh;
+}
+
+#lightbox-inner img {
+  max-width: 80vw;
+  max-height: 70vh;
+  border-radius: 10px;
+  transform: scale(0.92);
+  transition: transform 0.25s ease;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+#lightbox.active #lightbox-inner img {
+  transform: scale(1);
+}
+
+#lightbox p {
+  color: white;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#lightbox.active p {
+  opacity: 1;
+}
+
+/* Styles pour TOUS les boutons de la lightbox (y compris la croix) */
 #lightbox button {
-  position: absolute;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 1.8rem;
-  width: 2.5rem;
-  height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.2s;
   z-index: 1020;
 }
 
-/* Croix en haut à droite */
+/* Styles SPÉCIFIQUES pour les boutons de navigation (précédent/suivant) */
+#lightbox-inner #prev-lightbox,
+#lightbox-inner #next-lightbox {
+  font-size: 2.2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+/* Styles pour la croix de fermeture (positionnement absolu) */
 #close-lightbox {
-  top: 12px;
-  right: 12px;
-  font-size: 1.5rem;
-  background: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   z-index: 1030;
+  font-size: 1.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
 }
 
-/* Précédent (1/3 de l'écran) */
-#prev-lightbox {
-  top: 50%;
-  left: 33%;
-  transform: translate(-50%, -50%);
+/* Effets au survol pour les boutons de navigation */
+#lightbox-inner #prev-lightbox:hover,
+#lightbox-inner #next-lightbox:hover {
+  background: rgba(0, 0, 0, 0.6) !important;
+  transform: scale(1.15);
 }
+/* =============================
+   Responsive
+============================= */
+@media (max-width: 600px) {
+  .projets-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 
-/* Suivant (2/3 de l'écran) */
-#next-lightbox {
-  top: 50%;
-  left: 66%;
-  transform: translate(-50%, -50%);
-}
+  .vignette-wrapper .vignette {
+    width: 100%;
+  }
 
-/* Hover flèches */
-#next-lightbox:hover,
-#prev-lightbox:hover {
-  background: rgba(0,0,0,0.6);
-  transform: translate(-50%, -50%) scale(1.15);
+  /* Lightbox mobile */
+  #lightbox-inner {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  #lightbox-inner img {
+    max-width: 90vw;
+    max-height: 65vh;
+  }
+
+  #lightbox-inner #prev-lightbox,
+  #lightbox-inner #next-lightbox {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #lightbox-inner #prev-lightbox {
+    left: 10px;
+  }
+
+  #lightbox-inner #next-lightbox {
+    right: 10px;
+  }
 }
