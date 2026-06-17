@@ -1,3 +1,10 @@
+""" PREPARATION de la structure des répertoire et fichiers d'images
+avec leurs descriptions, prises sur l'ensemble du site
+
+Les noms de fichiers et les descriptions sont lus dans "commentaires.json", 
+qui doit être mis à jour AVANT : liste des images mise à jour, associtation avec les descriptions"""
+
+
 import os
 import json
 
@@ -13,7 +20,7 @@ IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.gif', '.webp')
 # --- Chargement des commentaires ---
 def load_comments(path):
     if not os.path.exists(path):
-        print("ℹ️ Aucun fichier de commentaires trouvé")
+        print("Aucun fichier de commentaires trouvé")
         return {}
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -27,7 +34,7 @@ for page, base_dir in pages.items():
     categories = {}
 
     if not os.path.exists(base_dir):
-        print(f"⚠️ Dossier {base_dir} inexistant, page {page} ignorée")
+        print(f"Dossier {base_dir} inexistant, page {page} ignorée")
         continue
 
     for folder in sorted(os.listdir(base_dir)):
@@ -67,4 +74,4 @@ with open("categories.js", "w", encoding="utf-8") as f:
     json.dump(all_categories, f, indent=2, ensure_ascii=False)
     f.write(";")
 
-print("✅ categories.js généré avec commentaires externes")
+print("OK / categories.js généré avec description des images")

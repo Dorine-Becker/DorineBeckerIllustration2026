@@ -127,41 +127,75 @@
       <p class="apropos-text">
         Hello ! <br>
 
-Je suis Dorine Becker, une jeune illustratrice freelance. Suite à l'obtention de ma licence d'illustration et de mon stage chez Nostromo Éditions, l'univers du jeu de société s'est imposé à moi comme une évidence. À leurs côtés, j'ai notamment pu participer à la création de Drako, une extension d'Aetherya et j'ai également illustré Corback, un jeu dont la sortie est prévue pour l'année 2026. 
-<br>Je vous laisse le soin de consulter mon portfolio pour en savoir plus. N'hésitez pas à me contacter pour vos projets !
+Je suis Dorine Becker, une jeune illustratrice freelance. Suite à l'obtention de ma licence d'illustration et de mon stage chez Nostromo Éditions, l'univers du jeu de société s'est imposé à moi 
+comme une évidence.<br> À leurs côtés, j'ai notamment pu participer à la création de Drako, une extension d'Aetherya <br>et j'ai également illustré Corback, un jeu dont la sortie est prévue pour l'année 2026. 
+<br>Je vous laisse le soin de consulter mon portfolio pour en savoir plus.<br> N'hésitez pas à me contacter pour vos projets !
 <br><br>
 Au plaisir de travailler avec vous. 
       </p>
 
       <!-- Formulaire de contact -->
-      <form action="https://formsubmit.co/beckerdorine@gmail.com" method="POST" novalidate style="max-width:600px; margin:2rem auto;">
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="merci.html" />
+<style>
+  /* Style commun pour TOUS les labels (Prénom, Nom, Email, Téléphone, Message) */
+  form label[for="prenom"],
+  form label[for="nom"],
+  form label[for="email"],
+  form label[for="telephone"],
+  form label[for="message"] {
+    display: inline-block;
+    width: 100px; /* Largeur fixe pour tous les labels */
+    text-align: right; /* Alignement à droite */
+    margin-right: 10px; /* Espace entre le label et l'input/textarea */
+    vertical-align: top; /* Alignement vertical en haut pour le textarea */
+  }
 
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="Prénom" required />
-
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="Nom" required />
-
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="Email" required />
-
-        <label for="telephone">Téléphone :</label>
-        <input type="tel" id="telephone" name="Téléphone" pattern="[\d\s\+\-]{10,15}" placeholder="ex. 06 12 34 56 78" />
-
-        <label for="message">Message :</label>
-        <textarea id="message" name="Message" rows="5" required></textarea>
-
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
-  </main>
-
+  /* Style pour les labels "Email" et "Message" : marge supérieure pour simuler un saut de ligne */
   
-	<!--nouveau menu factorisé-->
+  /* Style commun pour les inputs (Prénom, Nom, Email, Téléphone) */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
+    width: 200px; /* Largeur fixe pour tous les inputs */
+    margin-bottom: 8px; /* Espace entre les lignes */
+  }
+
+  /* Style pour le textarea (Message) : même largeur que les inputs */
+  form textarea {
+    width: 200px; /* Même largeur que les inputs */
+    margin-bottom: 8px;
+    vertical-align: top; /* Alignement vertical en haut */
+  }
+</style>
+
+<!-- Formulaire de contact -->
+  <form action="https://formsubmit.co/beckerdorine@gmail.com" method="POST" novalidate style="max-width:600px; margin:2rem auto;">
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_next" value="merci.html" />
+
+  <label for="prenom">Prénom :</label>
+  <input type="text" id="prenom" name="Prénom" required />
+	<br>
+  <label for="nom">Nom :</label>
+  <input type="text" id="nom" name="Nom" required />
+	<br>
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="Email" required />
+	<br>
+  <label for="telephone">Téléphone :</label>
+  <input type="tel" id="telephone" name="Téléphone" pattern="[\d\s\+\-]{10,15}" placeholder="ex. 06 12 34 56 78" />
+	<br>
+  <label for="message">Message :</label>
+  <textarea 	id="message" name="Message" rows="5" required></textarea>
+
+  <button type="submit">Envoyer</button>
+  </form>
+  </section>
+
+</main>
+
+<!--nouveau menu factorisé-->
 <script>
   fetch("menu.html")
     .then(res => res.text())

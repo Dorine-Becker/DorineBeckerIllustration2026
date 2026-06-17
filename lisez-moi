@@ -1,37 +1,28 @@
-INFO / Dorine
 Fonctionnement :
 
-1. le répertoire partagé Drive a la même arborescence que tes fichiers sur le serveur, donc plus facile pour moi.
-Quand tu fais des modifs importantes, j'ai peu de manips à faire, je télécharge les nouvelles images et j'écrase le site en ligne en qq secondes
+1. MODIFS DE FICHIERS ET descriptions (affichées sous les images dans la vue "diapo unique")
+Mettre tous les fichiers IMAGES à leur place : 
+### dans des répertoires dont le nom commence par 'images'###
 
-2. dans notre Drive partagé, tu peux ajouter, enlever, renommer, changer les versions des images sans souci. Les renommer avec un numéro au début peut te permettre de forcer l'ordre où elles apparaissent
-Ex 10Biere_vert 11Biere_bleu 20Grimms   etc...   les fichiers sont lus dans l'ordre alphabétique 
+Effacer "anciens_commentaires.json" et renommer "commentaires.json" en "anciens_commentaires.json"
 
-3. ATTENTION il y a un fichier nommé "commentaires.json" = dedans, tu PEUX mettre un commentaire qui va être relié à chaque image
-S'il n'y a plus l'image le commentaire est ignoré, idem si le nom ne correspond pas parfaitement
+Lancer :
+python3 refaire_commentaires.py
 
-4. Tu peux dès que tu veux partager le lien web fonctionnel ci-dessous
-(C'est en "deep-web" : pas caché (dark_web), mais presque introuvable si on n'a pas le lien...)
-https://dorine-becker.github.io/DorineBeckerIllustration2026/
+(ceci fabrique la liste des fichiers, associe les anciens descriptions s'ils existaient)
+commentaires.json est un dico {'fichier':'description', ...
 
-5. Si on veut, on pourra acheter un nom de domaine, ce sera mieux car on pourra te trouver avec des mots clé sur un moteur...
+Lancer :
+python3 generate_categories.py 
 
+qui fabrique la structure lue par le html : associe avec les descriptions pour affichage web
+C'est à jour !
 
-================
-INFO / Papa
+Ouvrir index.html
 
-Génération de la liste des images 
+#######  ATTENTION en local les boutons ne fonctionnent pas toujours à cause 
+du cache ou autre : faire un serveur web temporaire ou màj la source distante ########
 
-Quand toutes les images sont OK en local : sur la racine du site exécuter le script 
-python3 generate_categories.py
-
-Ca met à jour le fichier categories.js
-où le html va piocher les noms des fichiers, et vérifier "commentaires.json" de type :
-{
-  "image1.jpg": "Illustration réalisée à l’encre et aquarelle.",
-  "image2.png": "Travail typographique expérimental.",
-  "Atelier.jpg": "L'atelier rêvé !"
-}
 ==================
 TEST SERVEUR LOCAL
 *** pour tél : 
