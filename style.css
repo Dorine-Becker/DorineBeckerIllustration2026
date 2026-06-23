@@ -2,7 +2,7 @@
    Variables et base générale
 ============================= */
 :root {
-  --vert-principal: #240046;
+  --violet-principal: #240046;
   --orange-accent: #eec373;
   --blanc-transp: rgba(255, 255, 255, 0.7);
   --blanc-transp-mobile: rgba(255, 255, 255, 0.6);
@@ -30,7 +30,7 @@ main {
 h1 {
   text-align: center;
   margin: 2rem 0;
-  color: var(--vert-principal);
+  color: var(--violet-principal);
 }
 
 /* =============================
@@ -72,7 +72,7 @@ h1 {
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   z-index: 10;
   text-align: center;
-  color: var(--vert-principal);
+  color: var(--violet-principal);
 }
 
 .titre-fixe h1 {
@@ -101,7 +101,7 @@ h1 {
 
 .bouton-lien:hover {
   background-color: var(--orange-accent);
-  color: var(--vert-principal);
+  color: var(--violet-principal);
 }
 
 /* =============================
@@ -223,7 +223,7 @@ body.a_propos main {
 .vignette-title {
   margin-top: 0.8rem;
   font-weight: bold;
-  color: var(--vert-principal);
+  color: var(--violet-principal);
 }
 
 /* =============================
@@ -359,4 +359,17 @@ body.a_propos main {
   #lightbox-inner #next-lightbox {
     right: 10px;
   }
+}
+
+/* Style pour le sous-titre "resumeProjet" */
+#resumeProjet {
+    font-size: 1.2em;
+    color: var(--violet-principal);
+    font-weight: 300;
+    margin: 10px auto 20px auto;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.25;
+    width: 80%;
+    max-width: 900px;
 }

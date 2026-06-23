@@ -1,30 +1,56 @@
-Fonctionnement :
+################################################################
+MISE A JOUR DU CONTENU DES PAGES
+################################################################
 
 1. MODIFS DE FICHIERS ET descriptions (affichées sous les images dans la vue "diapo unique")
 Mettre tous les fichiers IMAGES à leur place : 
-### dans des répertoires dont le nom commence par 'images'###
+dans des répertoires dont le nom commence par 'images'
 
-Effacer "anciens_commentaires.json" et renommer "commentaires.json" en "anciens_commentaires.json"
+2. Effacer "anciens_commentaires.json" et renommer "commentaires.json" en "anciens_commentaires.json"
 
-Lancer :
+3. Lancer :
 python3 refaire_commentaires.py
 
-(ceci fabrique la liste des fichiers, associe les anciens descriptions s'ils existaient)
+(ceci fabrique la liste des fichiers, associe les anciennes descriptions quand il y en avait)
 commentaires.json est un dico {'fichier':'description', ...
+Vérifier et mettre à jour la description des images.
 
+4.
 Lancer :
 python3 generate_categories.py 
+qui fabrique la structure lue par le html : 
+associe chaque fichier avec sa page/sous-page et sa description
 
-qui fabrique la structure lue par le html : associe avec les descriptions pour affichage web
-C'est à jour !
+5.
+Regarder dans resumeProjet la liste des résumés, qui doivent être posés à la main dans categories.js
+une fois qu'il est à jour
+Mettre à jour "resumeProjet" sur ce modèle précis, grâce aux textes sauvés sous 'resumeProjet.txt' : 
+ "projets": {
+    "corback": {
+      "title": "Corback",
+      "dir": "images_projets/Corback/",
+      "resumeProjet": "Une phrase qui décrit le projet.",
+      "vignette": "images_projets/Corback/Corback_1A.jpg",
+      "files": [
+        "Corback_2A.jpg",
+        "Corback_2B.jpg",
+(Save)
 
+6. C'est prêt à être uploadé ou testé.
 Ouvrir index.html
 
 #######  ATTENTION en local les boutons ne fonctionnent pas toujours à cause 
-du cache ou autre : faire un serveur web temporaire ou màj la source distante ########
+du cache ou autre : faire un serveur web temporaire 
+ET vider le cache car il y a eu des soucis à cause du cache
 
-==================
+################################################################
 TEST SERVEUR LOCAL
+################################################################
+*** pour PC (vérif des pastilles etc)
+python3 -m http.server 8000
+et ouvrir le navigateur sur 
+http://localhost:8000/index.html
+===============
 *** pour tél : 
 
 ouvrir un Term dans racine site
@@ -38,11 +64,6 @@ et sur le tel ouvrir par ex
 http://192.168.1.26:8000/portfolio.html
 (ATTENTION aux espaces auto après le point)
 
-*** pour PC (vérif des pastilles etc)
-python3 -m http.server 8000
-et ouvrir le navigateur sur 
-http://localhost:8000/index.html
-===============
 
 dépôt github : PUSH SYNCHRO  upload
 TERMINAL ouvrir sur racine (là où il y a index.html)
@@ -56,8 +77,6 @@ pour les push de Git on a généré et lié une clé ssh ici :
 SHA256:4jjOP5l97vBZs9EYadzw/qLvkf3+0o7NOa8pBe7Q3HA gnrsgn@gmail.com
 PAssPhrase
 DorineManosq04ocatar
-
-
 
 ==================
 git status

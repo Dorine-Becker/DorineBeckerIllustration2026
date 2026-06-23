@@ -1,3 +1,4 @@
+
 const allCategories = {
   "portfolio": {
     "charadesign": {
@@ -15,10 +16,10 @@ const allCategories = {
         "Chara__4A"
       ],
       "desc": [
-        "",
-        "",
-        "",
-        ""
+        "PNJ pour du jeu de rôle",
+        "Guerrier pour du jeu de rôle",
+        "Tribu masquée",
+        "Charadesign d'une figurine de jeu de rôle - Réalisé lors d'un stage avec Bruno Bessadi"
       ]
     },
     "illustration": {
@@ -49,13 +50,13 @@ const allCategories = {
       ],
       "desc": [
         "",
+        "Illustration pour le jeu de rôle Channel Fear",
         "",
         "",
         "",
         "",
         "",
-        "",
-        "",
+        "Commande d'une affiche décorative pour l'entreprise Valco Kempos",
         "",
         ""
       ]
@@ -79,7 +80,7 @@ const allCategories = {
         "Jeux_4A"
       ],
       "desc": [
-        "",
+        "Illustration de cartes de jeu dans le cadre d'un stage avec Jules Dubost",
         "",
         "",
         "",
@@ -102,10 +103,10 @@ const allCategories = {
         "Livres_4A"
       ],
       "desc": [
-        "",
-        "",
-        "",
-        ""
+        "Couverture d'un livre jeunesse",
+        "Couverture d'une bande-dessinée ado",
+        "Couverture d'un roman - Commande d'un particulier",
+        "Couverture et vignette d'un livre illustré"
       ]
     }
   },
@@ -113,6 +114,7 @@ const allCategories = {
     "corback": {
       "title": "Corback",
       "dir": "images_projets/Corback/",
+      "resumeProjet": "Corback était un jeu que j'ai eu l'opportunité d'illustrer entièrement, chez Nostromo Éditions. C'était un jeu de cartes familial et compétitif sur le thème des corbeaux. Le jeu a finalement été annulé.",
       "vignette": "images_projets/Corback/Corback_1A.jpg",
       "files": [
         "Corback_2A.jpg",
@@ -149,9 +151,9 @@ const allCategories = {
         "Corback_4E"
       ],
       "desc": [
-        "",
-        "",
-        "",
+        "Couverture de la boîte",
+        "Charadesign et recherches",
+        "Cartes et jeton",
         "",
         "",
         "",
@@ -170,6 +172,7 @@ const allCategories = {
     "drako": {
       "title": "Drako",
       "dir": "images_projets/Drako/",
+	  "resumeProjet":"À l'occasion de mon stage chez Nostromo Éditions, j'ai eu l'opportunité de collaborer avec l'illustratrice Julie Gruet sur Drako, une extension du jeu Aetherya, sorti en 2025. J'ai notamment travaillé sur la pictographie des cartes et réalisé une proposition pour la couverture de la boîte.",
       "vignette": "images_projets/Drako/Drako_1A.jpg",
       "files": [
         "Drako_2A.jpg",
@@ -180,15 +183,16 @@ const allCategories = {
         "Drako_3A"
       ],
       "desc": [
-        "",
-        "",
-        ""
+        "Proposition de couverture",
+        "Pictographie",
+        "Jeu sorti chez Nostromo Éditions"
       ]
     },
     "grimms_investigations": {
       "title": "Grimms Investigations",
       "dir": "images_projets/Grimms_Investigations/",
       "vignette": "images_projets/Grimms_Investigations/Grimms_1A.jpg",
+	  "resumeProjet":"Grimm's Investigations est un projet de livre-jeu illustré qui vient conclure ma licence en illustration au sein de l'école de Condé. Il est accessible à partir de 8 ans et est composé d'une boîte de rangement contenant un livre illustré narratif ainsi que des cartes de jeu. Dans cette enquête immersive, le lecteur incarne Wilhelm Grimm afin de retrouver le Petit Chaperon Rouge qui s'est échappé de son conte.",
       "files": [
         "Grimms_2A.jpg",
         "Grimms_3A.jpg",
@@ -220,6 +224,8 @@ const allCategories = {
         "Grimms_5A"
       ],
       "desc": [
+        "Couverture du livre",
+        "Boîte de rangement, livre et cartes",
         "",
         "",
         "",
@@ -231,9 +237,7 @@ const allCategories = {
         "",
         "",
         "",
-        "",
-        "",
-        ""
+        "Dos des cartes"
       ]
     },
     "tas_une_tache": {
@@ -259,8 +263,8 @@ const allCategories = {
         "Tache_3F"
       ],
       "desc": [
-        "",
-        "",
+        "Charadesign",
+        "Livre imprimé et lecteurs",
         "",
         "",
         "",
