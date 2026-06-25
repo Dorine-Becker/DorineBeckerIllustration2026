@@ -244,6 +244,7 @@ const allCategories = {
       "title": "Tas une tache",
       "dir": "images_projets/Tas_une_tache/",
       "vignette": "images_projets/Tas_une_tache/Tache_2A.jpg",
+  	  "resumeProjet": "T'as une tâche, pistache ! est né d'une collaboration entre le domaine de la neuropsychologie et celui de l'illustration. À travers la volonté de sensibiliser autour de la maladie de Sturge Weber, l'autrice et moi avons créé un album jeunesse que j'ai eu l'opportunité d'illustrer entièrement. Si vous êtes davantage intéressé, je vous renvoie vers notre campagne Ulule ou vous pourrez acheter un exemplaire du livre !",
       "files": [
         "Tache_2B.jpg",
         "Tache_3A.jpg",
