@@ -1,68 +1,59 @@
-"""
-après avoir renommé commentaires.json en anciens_commentaires.json :
-écrasement du fichier commentaires.json qui est un dictionnaire avec comme clés tous les noms de fichiers trouvés sur les répertoires d'images
-(les répertoires dont le nom commence par 'images', récursivement)
-et comme Values les commentaires qui existaient auparavant, pris dans anciens_commentaires.json si le nom correspond
-
-les commentaires d'images qui n'existent plus sont récupérés dans
-
-ce fichier doit être complété à la main pour éventuellement insérer des descriptions sur les images qui n'en ont pas"""
-
-import os
 import json
+import os
 
-# --- Extensions acceptées ---
+# Extensions d'images à rechercher
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp")
 
-les_anciens = "anciens_commentaires.json"
-les_nouveaux = "commentaires.json"
-description_sans_image_correspondante = "commentaires_sans_images.json"
+# Chemins des fichiers
+ANCIENS_COMMENTAIRES_PATH = "anciens_commentaires.json"
+COMMENTAIRES_OUTPUT_PATH = "commentaires.json"
+ORPHELINS_OUTPUT_PATH = "commentaires_orphelins.json"
 
-def charger_json(path):
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
 
-def trouver_images():
-    images = set()
-    for root, dirs, files in os.walk("."):
-        parts = root.split(os.sep)
-        if not any(p.startswith("images") for p in parts):
-            continue
-        for f in files:
-            if f.lower().endswith(IMAGE_EXTENSIONS):
-                images.add(f)
+def find_images(root_dir="."):
+    """Parcourt récursivement les sous-répertoires et retourne tous les fichiers image trouvés."""
+    images = []
+    for dirpath, dirnames, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if filename.lower().endswith(IMAGE_EXTENSIONS):
+                images.append(filename)
     return images
 
+
 def main():
-    anciens = charger_json(les_anciens)
-    images_trouvees = trouver_images()
+    # Charger les anciens commentaires
+    if not os.path.exists(ANCIENS_COMMENTAIRES_PATH):
+        print(f"Erreur : fichier '{ANCIENS_COMMENTAIRES_PATH}' introuvable.")
+        return
 
-    result = {}
-    commentaires_sans_images = {}
+    with open(ANCIENS_COMMENTAIRES_PATH, "r", encoding="utf-8") as f:
+        anciens = json.load(f)
 
-    for img in images_trouvees:
-        result[img] = anciens.get(img, "")
+    # Trouver toutes les images dans les sous-répertoires
+    images_trouvees = find_images(".")
+    print(f"{len(images_trouvees)} image(s) trouvée(s).")
 
-    # Trouver les commentaires sans images associées
-    for fichier, commentaire in anciens.items():
-        if fichier not in images_trouvees:
-            commentaires_sans_images[fichier] = commentaire
+    # Construire commentaires.json
+    commentaires = {}
+    for filename in sorted(images_trouvees):
+        commentaires[filename] = anciens.get(filename, "")
 
-    # --- TRI ALPHABÉTIQUE ICI ---
-    result = dict(sorted(result.items(), key=lambda x: x[0].lower()))
-    commentaires_sans_images = dict(sorted(commentaires_sans_images.items(), key=lambda x: x[0].lower()))
+    with open(COMMENTAIRES_OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(commentaires, f, ensure_ascii=False, indent=2)
+    print(f"'{COMMENTAIRES_OUTPUT_PATH}' créé avec {len(commentaires)} entrée(s).")
 
-    # sauvegarde
-    with open(les_nouveaux, "w", encoding="utf-8") as f:
-        json.dump(result, f, ensure_ascii=False, indent=2)
+    # Construire commentaires_orphelins.json
+    noms_trouves = set(images_trouvees)
+    orphelins = {
+        nom: texte
+        for nom, texte in anciens.items()
+        if nom not in noms_trouves
+    }
 
-    with open(description_sans_image_correspondante, "w", encoding="utf-8") as f:
-        json.dump(commentaires_sans_images, f, ensure_ascii=False, indent=2)
+    with open(ORPHELINS_OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(orphelins, f, ensure_ascii=False, indent=2)
+    print(f"'{ORPHELINS_OUTPUT_PATH}' créé avec {len(orphelins)} entrée(s) orpheline(s).")
 
-    print(f"{len(result)} images enregistrées dans {les_nouveaux} (triées)")
-    print(f"{len(commentaires_sans_images)} commentaires sans images enregistrés dans {description_sans_image_correspondante}")
 
 if __name__ == "__main__":
     main()

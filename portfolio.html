@@ -1,15 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dorine Becker – Portfolio</title>
+  <meta name="description" content="Portfolio de Dorine Becker, illustratrice freelance spécialisée en charadesign, illustration, jeux de société et livres jeunesse." />
+  <meta name="author" content="Dorine Becker" />
+  <meta property="og:title" content="Dorine Becker – Portfolio" />
+  <meta property="og:description" content="Illustrations originales de Dorine Becker : charadesign, jeux de société, livres jeunesse, illustration." />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="style.css" />
 </head>
-	
+
 <body class="portfolio">
 
 <div id="menu-container"></div>
@@ -21,20 +24,18 @@
 
 <div id="lightbox">
   <button id="close-lightbox" aria-label="Fermer">&times;</button>
-
   <div id="lightbox-inner">
     <button id="prev-lightbox" aria-label="Précédent">‹</button>
     <img src="" alt="" id="lightbox-image" />
     <button id="next-lightbox" aria-label="Suivant">›</button>
   </div>
-
   <p id="lightbox-text"></p>
 </div>
 
 <script src="categories.js"></script>
 
-
 <script>
+let currentCategory = null;
 let isLightboxOpen = false;
 const titleEl = document.getElementById('page-title');
 const container = document.getElementById('projets-container');
@@ -43,11 +44,11 @@ const categories = allCategories["portfolio"];
 
 let currentIndex = 0;
 let currentFiles = [];
-let currentDesc = [];
 let currentDir = "";
 
 // --- INDEX ---
 function loadPortfolioIndex() {
+  document.title = "Dorine Becker – Portfolio";
   titleEl.textContent = "Portfolio";
   container.innerHTML = "";
 
@@ -60,14 +61,21 @@ function loadPortfolioIndex() {
     const a = document.createElement("a");
     a.className = "vignette";
     a.href = `portfolio.html?cat=${key}`;
-    a.innerHTML = `<img src="${cat.vignette}" alt="${cat.title}">`;
+    a.setAttribute("aria-label", `Voir la catégorie ${cat.title}`);
 
-    const title = document.createElement("div");
-    title.className = "vignette-title";
-    title.textContent = cat.title;
+    const firstText = cat.content && cat.content[0] ? cat.content[0].text : "";
+    const alt = firstText
+      ? `${firstText} / illustration originale Dorine Becker`
+      : `illustration originale Dorine Becker`;
+
+    a.innerHTML = `<img src="${cat.dir}${cat.vignette}" alt="${alt}" loading="lazy">`;
+
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "vignette-title";
+    titleDiv.textContent = cat.title;
 
     wrapper.appendChild(a);
-    wrapper.appendChild(title);
+    wrapper.appendChild(titleDiv);
     container.appendChild(wrapper);
   });
 }
@@ -77,29 +85,39 @@ function loadCategory(catKey) {
   const cat = categories[catKey];
   if (!cat) return;
 
+  currentCategory = cat;
+
+  document.title = `${cat.title} – Dorine Becker`;
+  document.querySelector('meta[name="description"]').setAttribute(
+    "content",
+    `Illustrations originales de Dorine Becker – ${cat.title} : découvrez les œuvres de cette illustratrice freelance.`
+  );
+
   titleEl.textContent = cat.title;
   container.innerHTML = "";
 
-  const allFiles = [cat.vignette.split('/').pop(), ...cat.files];
-  const allDesc = cat.desc;
+  const content = cat.content;
 
-  allFiles.forEach((file, i) => {
+  content.forEach((item, i) => {
     const wrapper = document.createElement("div");
     wrapper.className = "vignette-wrapper";
 
     const a = document.createElement("a");
     a.className = "vignette";
     a.href = "#";
-    a.innerHTML = `<img src="${cat.dir}${file}" alt="">`;
+
+    const alt = item.text
+      ? `${item.text} / illustration originale Dorine Becker`
+      : `illustration originale Dorine Becker`;
+
+    a.setAttribute("aria-label", item.text || `Illustration ${cat.title} de Dorine Becker`);
+    a.innerHTML = `<img src="${cat.dir}${item.file}" alt="${alt}" loading="lazy">`;
 
     a.addEventListener('click', e => {
       e.preventDefault();
-
-      currentFiles = allFiles;
-      currentDesc = allDesc;
+      currentFiles = content;
       currentIndex = i;
       currentDir = cat.dir;
-
       updateLightbox();
       openLightbox();
     });
@@ -109,18 +127,22 @@ function loadCategory(catKey) {
   });
 }
 
-// --- UPDATE IMAGE ---
+// --- UPDATE LIGHTBOX ---
 function updateLightbox() {
   if (!currentFiles.length) return;
 
+  const item = currentFiles[currentIndex];
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxText = document.getElementById('lightbox-text');
 
-  // Met à jour l'image
-  lightboxImage.src = currentDir + currentFiles[currentIndex];
+  lightboxImage.src = currentDir + item.file;
+  lightboxImage.loading = "eager";
+  lightboxImage.decoding = "async";
+  lightboxImage.alt = item.text
+    ? `${item.text} / illustration originale Dorine Becker`
+    : `illustration originale Dorine Becker`;
 
-  // Met à jour la description
-  lightboxText.textContent = currentDesc[currentIndex] || "";
+  lightboxText.textContent = item.text || "";
 }
 
 // --- ROUTAGE ---
@@ -133,96 +155,59 @@ if (cat && categories[cat]) {
   loadPortfolioIndex();
 }
 
-// --- LIGHTBOX: croix et clic sur fond ---
+// --- LIGHTBOX ---
 const lightbox = document.getElementById('lightbox');
 const closeBtn = document.getElementById('close-lightbox');
 const nextBtn = document.getElementById('next-lightbox');
-const prevBtn = document.getElementById('prev-lightbox'); // bouton précédent
+const prevBtn = document.getElementById('prev-lightbox');
 
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
+function openLightbox() {
+  lightbox.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  prevBtn.removeAttribute('style');
+  nextBtn.removeAttribute('style');
+  requestAnimationFrame(() => {
+    lightbox.classList.add('active');
+  });
+  isLightboxOpen = true;
+}
 
-lightbox.addEventListener('click', (e) => {
-  if (e.target.id === 'lightbox') {
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  setTimeout(() => {
     lightbox.style.display = 'none';
-  }
-});
+    document.body.style.overflow = '';
+  }, 250);
+  isLightboxOpen = false;
+}
 
-// --- BOUTON SUIVANT ---
 nextBtn.addEventListener('click', () => {
   if (!currentFiles.length) return;
   currentIndex = (currentIndex + 1) % currentFiles.length;
   updateLightbox();
 });
 
-// --- BOUTON PRÉCÉDENT ---
 prevBtn.addEventListener('click', () => {
   if (!currentFiles.length) return;
   currentIndex = (currentIndex - 1 + currentFiles.length) % currentFiles.length;
   updateLightbox();
 });
 
-// =============================
-// LIGHTBOX PREMIUM
-// =============================
-// Animation ouverture
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-
-  // Supprime les styles inline des boutons de navigation
-  prevBtn.removeAttribute('style');
-  nextBtn.removeAttribute('style');
-
-  requestAnimationFrame(() => {
-    lightbox.classList.add('active');
-  });
-
-  isLightboxOpen = true;
-}
-
-// Animation fermeture
-function closeLightbox() {
-  lightbox.classList.remove('active');
-
-  setTimeout(() => {
-    lightbox.style.display = 'none';
-    document.body.style.overflow = '';
-  }, 250);
-
-  isLightboxOpen = false;
-}
-
-
-
-// Fermer (croix + fond)
 closeBtn.addEventListener('click', closeLightbox);
 
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) closeLightbox();
 });
 
-// Navigation clavier
 document.addEventListener('keydown', (e) => {
   if (!isLightboxOpen) return;
-
   switch (e.key) {
-    case 'Escape':
-      closeLightbox();
-      break;
-
-    case 'ArrowRight':
-      nextBtn.click();
-      break;
-
-    case 'ArrowLeft':
-      prevBtn.click();
-      break;
+    case 'Escape':     closeLightbox(); break;
+    case 'ArrowRight': nextBtn.click(); break;
+    case 'ArrowLeft':  prevBtn.click(); break;
   }
 });
 
-// Clic sur image = suivant
 document.getElementById('lightbox-image').addEventListener('click', () => {
   nextBtn.click();
 });
@@ -237,20 +222,11 @@ lightbox.addEventListener('touchstart', e => {
 
 lightbox.addEventListener('touchend', e => {
   touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
   const diff = touchEndX - touchStartX;
-
   if (Math.abs(diff) < 50) return;
-
-  if (diff < 0) {
-    nextBtn.click(); // swipe gauche
-  } else {
-    prevBtn.click(); // swipe droite
-  }
-}
+  if (diff < 0) nextBtn.click();
+  else prevBtn.click();
+});
 </script>
 
 <!-- CONTACT -->
