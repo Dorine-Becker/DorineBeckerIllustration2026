@@ -25,15 +25,20 @@ associe chaque fichier avec sa page/sous-page et sa description
 Regarder dans resumeProjet la liste des résumés, qui doivent être posés à la main dans categories.js
 une fois qu'il est à jour
 Mettre à jour "resumeProjet" sur ce modèle précis, grâce aux textes sauvés sous 'resumeProjet.txt' : 
- "projets": {
+"projets": {
     "corback": {
       "title": "Corback",
-      "dir": "images_projets/Corback/",
-      "resumeProjet": "Une phrase qui décrit le projet.",
-      "vignette": "images_projets/Corback/Corback_1A.jpg",
-      "files": [
-        "Corback_2A.jpg",
-        "Corback_2B.jpg",
+      "dir": "images_projets/corback/",
+      "vignette": "Corback_1A.jpg",
+	  "resumeProjet":"Corback était un jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. C'était un jeu de cartes familial et compétitif sur le thème des corbeaux. Le jeu a finalement été annulé.",
+      "content": [
+        { "file": "Corback_1A.jpg", "text": "Couverture de la boîte" },
+        { "file": "Corback_2A.jpg", "text": "Charadesign et recherches" },
+        { "file": "Corback_2B.jpg", "text": "Cartes et jeton" },
+        { "file": "Corback_3A.png", "text": "" },
+        { "file": "Corback_3B.png", "text": "" },
+        { "file": "Corback_3C.png", "text": "" },
+        { "file": "Corback_3D.png", "text": "" }
 (Save)
 
 6. C'est prêt à être uploadé ou testé.
