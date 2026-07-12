@@ -23,7 +23,7 @@ const allCategories = {
         { "file": "Illu__4B.jpg", "text": "" },
         { "file": "Illu__4C.jpg", "text": "" },
         { "file": "Illu__5A.jpg", "text": "" },
-        { "file": "Illu__6A.jpg", "text": "Commande d'une affiche décorative pour l'entreprise Valco Kempos" },
+        { "file": "Illu__6A.jpg", "text": "Commande d'une affiche décorative pour l'entreprise Valco Kem" },
         { "file": "Illu__7A.jpg", "text": "" },
         { "file": "Illu__8A.jpg", "text": "" }
       ]
