@@ -8,4 +8,4 @@ Grimm's Investigations :
 
 Corback : 
 
-	  "resumeProjet":"Corback était un jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. C'était un jeu de cartes familial et compétitif sur le thème des corbeaux. Le jeu a finalement été annulé.",
+	  "resumeProjet":"Corback était un projet de jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. Un jeu de cartes familial et compétitif sur le thème des corbeaux, non édité à ce jour.",

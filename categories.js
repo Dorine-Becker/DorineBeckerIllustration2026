@@ -58,7 +58,7 @@ const allCategories = {
       "title": "Corback",
       "dir": "images_projets/corback/",
       "vignette": "Corback_1A.jpg",
-	  "resumeProjet":"Corback était un jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. C'était un jeu de cartes familial et compétitif sur le thème des corbeaux. Le jeu a finalement été annulé.",
+	  "resumeProjet":"Corback était un projet de jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. Un jeu de cartes familial et compétitif sur le thème des corbeaux, non édité à ce jour.",
       "content": [
         { "file": "Corback_1A.jpg", "text": "Couverture de la boîte" },
         { "file": "Corback_2A.jpg", "text": "Charadesign et recherches" },
@@ -93,7 +93,7 @@ const allCategories = {
       "title": "Grimm's investigations",
       "dir": "images_projets/grimms/",
       "vignette": "Grimms_1A.jpg",
-	  "resumeProjet":"Corback était un jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. C'était un jeu de cartes familial et compétitif sur le thème des corbeaux. Le jeu a finalement été annulé.",
+	  "resumeProjet":"Grimm's Investigations est un projet de livre-jeu illustré qui vient conclure ma licence en illustration au sein de l'école de Condé. Il est accessible à partir de 8 ans et est composé d'une boîte de rangement contenant un livre illustré narratif ainsi que des cartes de jeu. Dans cette enquête immersive, le lecteur incarne Wilhelm Grimm afin de retrouver le Petit Chaperon Rouge qui s'est échappé de son conte.",
       "content": [
         { "file": "Grimms_1A.jpg", "text": "Couverture du livre" },
         { "file": "Grimms_2A.jpg", "text": "Boîte de rangement, livre et cartes" },

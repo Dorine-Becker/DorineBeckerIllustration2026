@@ -5,6 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dorine Becker Illustratrice</title>
 
-<h1> Site en préparation </h1>
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-<h1> RENDEZ-VOUS le 12 juillet 2026 !! </h1>
+<body class="accueil">
+
+<header>
+
+	
+	<!-- Font Awesome en local -->
+  <link rel="stylesheet" href="fontawesome/css/all.css">
+</header>
+
+<main>
+  <div class="titre-fixe">
+    <h1>Dorine Becker</h1>
+	  <h3>  illustratrice</h3>
+
+    <div class="liens">
+      <a href="portfolio.html" class="bouton-lien">Portfolio</a>
+      <a href="projets.html" class="bouton-lien">Projets</a>
+    </div>
+
+    <div class="liens liens-centre">
+      <a href="a_propos.html" class="bouton-lien">À propos</a>
+    </div>
+  </div>
+
+  <!-- Diaporama -->
+  <section id="Accueil">
+    <div class="slideshow">
+      <div class="slide initial-active" style="background-image: url('images_accueil/Atelier.jpg');"></div>
+      <div class="slide" style="background-image: url('images_accueil/Sherlock_2pages.jpg');"></div>
+    </div>
+  </section>
+</main>
+
+<div class="contact-home">
+  <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="tel:0767205436" class="footer-button phone">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+</div>
+
+
+
+
+<!-- Scripts -->
+<script>
+  // Menu mobile
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  if (menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+    });
+  }
+
+  // Diaporama artistique (fondu + zoom)
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function startInitialAnimation() {
+    setTimeout(() => {
+      slides[currentSlide].classList.remove('initial-active');
+      slides[currentSlide].classList.add('active');
+    }, 50);
+  }
+
+  startInitialAnimation();
+
+  function showNextSlide() {
+    const nextSlide = (currentSlide + 1) % slides.length;
+    slides[nextSlide].classList.add('active');
+    setTimeout(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = nextSlide;
+    }, 2000);
+  }
+
+  setInterval(showNextSlide, 6000);
+</script>
+
+	<!-- BON BLOC pour les pastilles -->
+	<div class="contact-home">
+  <a href="mailto:gnrsgn@gmail.com" class="footer-button mail">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="tel:0767205436" class="footer-button phone">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="https://www.instagram.com/dnine_art" target="_blank" class="footer-button instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+	</div>
+
+	</body>
+</html>
