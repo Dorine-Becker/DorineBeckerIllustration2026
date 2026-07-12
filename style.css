@@ -89,6 +89,10 @@ h1 {
   gap: 1.5rem;
 }
 
+.liens-centre {
+  margin-top: 1rem; /* espace entre les deux rangées de boutons */
+}
+
 .bouton-lien {
   padding: 0.75rem 1.5rem;
   background-color: #5a189a;
