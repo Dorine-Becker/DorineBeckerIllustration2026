@@ -58,6 +58,7 @@ const allCategories = {
       "title": "Corback",
       "dir": "images_projets/corback/",
       "vignette": "Corback_1A.jpg",
+	  "resumeProjet":"À l'occasion de mon stage chez Nostromo Éditions, j'ai eu l'opportunité de collaborer avec l'illustratrice Julie Gruet sur Drako, une extension du jeu Aetherya, sorti en 2025. J'ai notamment travaillé sur la pictographie des cartes et réalisé une proposition pour la couverture de la boîte.",
       "content": [
         { "file": "Corback_1A.jpg", "text": "Couverture de la boîte" },
         { "file": "Corback_2A.jpg", "text": "Charadesign et recherches" },
@@ -81,6 +82,7 @@ const allCategories = {
       "title": "Drako",
       "dir": "images_projets/drako/",
       "vignette": "Drako_1A.jpg",
+	  "resumeProjet":"Corback était un projet de jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. Un jeu de cartes familial et compétitif sur le thème des corbeaux, non édité à ce jour.",
       "content": [
         { "file": "Drako_1A.jpg", "text": "Proposition de couverture" },
         { "file": "Drako_2A.jpg", "text": "Pictographie" },
@@ -91,6 +93,7 @@ const allCategories = {
       "title": "Grimm's investigations",
       "dir": "images_projets/grimms/",
       "vignette": "Grimms_1A.jpg",
+	  "resumeProjet":"Grimm's Investigations est un projet de livre-jeu illustré qui vient conclure ma licence en illustration au sein de l'école de Condé. Il est accessible à partir de 8 ans et est composé d'une boîte de rangement contenant un livre illustré narratif ainsi que des cartes de jeu. Dans cette enquête immersive, le lecteur incarne Wilhelm Grimm afin de retrouver le Petit Chaperon Rouge qui s'est échappé de son conte.",
       "content": [
         { "file": "Grimms_1A.jpg", "text": "Couverture du livre" },
         { "file": "Grimms_2A.jpg", "text": "Boîte de rangement, livre et cartes" },
@@ -111,6 +114,7 @@ const allCategories = {
     "tas_une_tache": {
       "title": "T'as une tâche, pistache !",
       "dir": "images_projets/tas_une_tache/",
+	  "resumeProjet":"T'as une tâche, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
       "vignette": "Tache_1A.jpg",
       "content": [
         { "file": "Tache_1A.jpg", "text": "" },

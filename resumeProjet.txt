@@ -9,3 +9,7 @@ Grimm's Investigations :
 Corback : 
 
 	  "resumeProjet":"Corback était un projet de jeu que j'ai eu l'opportunité d'illustrer entièrement chez Nostromo Éditions. Un jeu de cartes familial et compétitif sur le thème des corbeaux, non édité à ce jour.",
+
+T'as une tâche : 
+
+	  "resumeProjet":"T'as une tâche, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares."
