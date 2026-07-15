@@ -23,7 +23,6 @@
   "Drako_1A.jpg": "Proposition de couverture",
   "Drako_2A.jpg": "Pictographie",
   "Drako_3A.jpg": "Jeu sorti chez Nostromo Éditions",
-  "fond_transparent.jpg": "",
   "Grimms_1A.jpg": "Couverture du livre",
   "Grimms_2A.jpg": "Boîte de rangement, livre et cartes",
   "Grimms_3A.jpg": "",
@@ -45,7 +44,7 @@
   "Illu__4B.jpg": "",
   "Illu__4C.jpg": "",
   "Illu__5A.jpg": "",
-  "Illu__6A.jpg": "Commande d'une affiche décorative pour l'entreprise Valco Kempos",
+  "Illu__6A.jpg": "Commande d'une affiche décorative pour l'entreprise Valco Kem",
   "Illu__7A.jpg": "",
   "Illu__8A.jpg": "",
   "Jeux_1A.jpg": "Illustration de cartes de jeu dans le cadre d'un stage avec Jules Dubost",
@@ -58,7 +57,6 @@
   "Livres_2A.jpg": "Couverture d'une bande-dessinée ado",
   "Livres_3A.jpg": "Couverture d'un roman - Commande d'un particulier",
   "Livres_4A.jpg": "Couverture et vignette d'un livre illustré",
-  "profil.jpg": "commentaire pour profil",
   "Sherlock_2pages.jpg": "",
   "Tache_2A.jpg": "Charadesign",
   "Tache_2B.jpg": "Livre imprimé et lecteurs",
@@ -67,5 +65,7 @@
   "Tache_3C.jpg": "",
   "Tache_3D.jpg": "",
   "Tache_3E.jpg": "",
-  "Tache_3F.jpg": ""
+  "Tache_3F.jpg": "",
+  "fond_transparent.jpg": "",
+  "profil.jpg": "commentaire pour profil"
 }
