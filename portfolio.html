@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dorine Becker – Portfolio</title>
-  <meta name="description" content="Portfolio de Dorine Becker, illustratrice freelance spécialisée en charadesign, illustration, jeux de société et livres jeunesse." />
+
+  <link rel="canonical" href="https://dorinebecker.fr/portfolio.html" />
+
+  <title>Dorine Becker – Portfolio d'illustratrice | Vaucluse & Luberon</title>
+
+  <meta name="description" content="Portfolio de Dorine Becker, illustratrice dans le Vaucluse et le Luberon : character design, illustration, jeux de société et livres jeunesse." />
+
   <meta name="author" content="Dorine Becker" />
-  <meta property="og:title" content="Dorine Becker – Portfolio" />
-  <meta property="og:description" content="Illustrations originales de Dorine Becker : charadesign, jeux de société, livres jeunesse, illustration." />
+
+  <meta property="og:title" content="Dorine Becker – Portfolio d'illustratrice" />
+  <meta property="og:description" content="Découvrez les illustrations de Dorine Becker, illustratrice dans le Vaucluse et le Luberon : character design, jeux de société et livres jeunesse." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dorinebecker.fr/portfolio.html" />
+
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dorine Becker",
+    "url": "https://dorinebecker.fr/",
+    "jobTitle": "Illustratrice Illustrateur",
+    "description": "Illustratrice Illustrateur Vaucluse et le Luberon.",
+    "sameAs": [
+      "https://www.instagram.com/dnine_art"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body class="portfolio">
@@ -48,7 +72,7 @@ let currentDir = "";
 
 // --- INDEX ---
 function loadPortfolioIndex() {
-  document.title = "Dorine Becker – Portfolio";
+  document.title = "Dorine Becker – Portfolio illustratrice illustrateur | Vaucluse & Luberon";
   titleEl.textContent = "Portfolio";
   container.innerHTML = "";
 
