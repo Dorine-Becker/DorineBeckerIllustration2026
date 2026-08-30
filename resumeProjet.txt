@@ -1,3 +1,9 @@
+INSERER la ligne avec les guillemets
+
+ATTENTION il faut une virgule en fin de ligne !
+
+*************************
+
 Drako : 
 
 	  "resumeProjet":"À l'occasion de mon stage chez Nostromo Éditions, j'ai eu l'opportunité de collaborer avec l'illustratrice Julie Gruet sur Drako, une extension du jeu Aetherya, sorti en 2025. J'ai notamment travaillé sur la pictographie des cartes et réalisé une proposition pour la couverture de la boîte.",
@@ -12,4 +18,4 @@ Corback :
 
 T'as une tâche : 
 
-	  "resumeProjet":"T'as une tâche, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares."
+	  "resumeProjet":"T'as une tâche, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
