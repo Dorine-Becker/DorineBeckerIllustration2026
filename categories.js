@@ -103,7 +103,7 @@ const allCategories = {
       "title": "Grimm's investigations",
       "dir": "images_projets/grimms/",
       "vignette": "Grimms_1A.jpg",
-"resumeProjet":"Grimm's Investigations est un projet de livre-jeu illustré qui vient conclure ma licence en illustration au sein de l'école de Condé. Il est accessible à partir de 8 ans et est composé d'une boîte de rangement contenant un livre illustré narratif ainsi que des cartes de jeu. Dans cette enquête immersive, le lecteur incarne Wilhelm Grimm afin de retrouver le Petit Chaperon Rouge qui s'est échappé de son conte.",
+	  "resumeProjet":"Grimm's Investigations est un projet de livre-jeu illustré qui vient conclure ma licence en illustration au sein de l'école de Condé. Il est accessible à partir de 8 ans et est composé d'une boîte de rangement contenant un livre illustré narratif ainsi que des cartes de jeu. Dans cette enquête immersive, le lecteur incarne Wilhelm Grimm afin de retrouver le Petit Chaperon Rouge qui s'est échappé de son conte.",
       "content": [
         { "file": "Grimms_1A.jpg", "text": "Couverture du livre" },
         { "file": "Grimms_2A.jpg", "text": "Boîte de rangement, livre et cartes" },
@@ -126,7 +126,7 @@ const allCategories = {
       "title": "T'as une tache, pistache !",
       "dir": "images_projets/tas_une_tache/",
       "vignette": "Tache_1A.jpg",
-	  "resumeProjet":"T'as une tache, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
+	  "resumeProjet":"T'as une tache, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. Nous avons inité une campagne de financement participatif qui permet d'envoyer des exemplaires imprimés aux donateurs. (Pour participer : https://fr.ulule.com/livre-tas-une-tache/) L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
       "content": [
         { "file": "Tache_1A.jpg", "text": "" },
         { "file": "Tache_2A.jpg", "text": "Charadesign" },
@@ -136,7 +136,8 @@ const allCategories = {
         { "file": "Tache_3C.jpg", "text": "" },
         { "file": "Tache_3D.jpg", "text": "" },
         { "file": "Tache_3E.jpg", "text": "" },
-        { "file": "Tache_3F.jpg", "text": "" }
+        { "file": "Tache_3F.jpg", "text": "" },
+        { "file": "Tache_3G.jpg", "text": "" }
       ]
     }
   }
