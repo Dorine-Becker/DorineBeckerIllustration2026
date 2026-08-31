@@ -103,17 +103,6 @@ DorineManosq04ocatar
 git status
 git add -A
 git commit -m "bla"
-git push origin main
-
-git push origin main --force /// n’est jamais nécessaire pour ce genre de mise à jour
-
-Il sert uniquement si tu veux réécrire l’historique ou corriger un push précédent
+SSH_AUTH_SOCK= git push origin main
 
 
---------------
-Et vers le bas =
-
-dépôt github : PUSH synchro DOWNLOAD
-git fetch origin
-git reset --hard origin/main
-git clean -fd

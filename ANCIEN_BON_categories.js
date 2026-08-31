@@ -126,7 +126,7 @@ const allCategories = {
       "title": "T'as une tache, pistache !",
       "dir": "images_projets/tas_une_tache/",
       "vignette": "Tache_1A.jpg",
-	  "resumeProjet":"T'as une tache, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. Nous avons inité une campagne de financement participatif qui permet d'envoyer des exemplaires imprimés aux donateurs.\n(Pour participer : https://fr.ulule.com/livre-tas-une-tache/) L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
+	  "resumeProjet":"T'as une tache, pistache ! est un album jeunesse autour de la maladie de Sturge Weber. Nous avons inité une campagne de financement participatif qui permet d'envoyer des exemplaires imprimés aux donateurs. (Pour participer : https://fr.ulule.com/livre-tas-une-tache/) L'autrice et moi-même avons réalisé l'entièreté du livre afin de sensibiliser aux maladies rares.",
       "content": [
         { "file": "Tache_1A.jpg", "text": "" },
         { "file": "Tache_2A.jpg", "text": "Charadesign" },

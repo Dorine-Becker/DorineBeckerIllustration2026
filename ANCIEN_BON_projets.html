@@ -47,7 +47,7 @@ let currentIndex = 0;
 let currentFiles = [];
 let currentDir = "";
 
-// --- LINKIFY (transforme les URL en liens cliquables et \n en sauts de ligne, échappe le reste) ---
+// --- LINKIFY (transforme les URL en liens cliquables, échappe le reste) ---
 function linkify(text) {
   const escapeHtml = (str) => str
     .replace(/&/g, "&amp;")
@@ -56,11 +56,9 @@ function linkify(text) {
 
   const urlRegex = /(https?:\/\/[^\s)]+)/g;
 
-  return escapeHtml(text)
-    .replace(/\n/g, "<br><br>")
-    .replace(urlRegex, (url) => {
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
-    });
+  return escapeHtml(text).replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+  });
 }
 
 // --- INDEX ---
